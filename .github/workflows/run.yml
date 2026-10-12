@@ -1,0 +1,53 @@
+name: promo-notifier
+
+on:
+  schedule:
+    # Mardi : nouveau folder Intermarché (mar → dim).
+    # Jeudi : nouvelle semaine Delhaize (jeu → mer).
+    - cron: "0 6 * * 2"
+    - cron: "0 6 * * 4"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Afficher le récap sans envoyer d'e-mail"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: promo-notifier
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Installer
+        run: pip install .
+
+      - name: Récupérer, filtrer, notifier
+        env:
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          MAIL_TO: ${{ secrets.MAIL_TO }}
+        run: promo-notifier ${{ inputs.dry_run && '--dry-run' || '' }}
+
+      # Même si une source a échoué, on mémorise les promos déjà notifiées.
+      - name: Mémoriser les promos notifiées
+        if: always() && !inputs.dry_run
+        run: |
+          git config user.name "promo-notifier[bot]"
+          git config user.email "promo-notifier[bot]@users.noreply.github.com"
+          git add state/seen.json
+          git diff --cached --quiet || git commit -m "state: promos notifiées $(date -u +%F)"
+          git push

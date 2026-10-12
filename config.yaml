@@ -1,0 +1,29 @@
+# Mots-clés recherchés dans la marque, le nom et la description des promos.
+# Insensible à la casse et aux accents ; correspond au début d'un mot
+# ("café" trouve "Café moulu", "cafés" ; "lait" trouve aussi "laitue").
+keywords:
+  - café
+  - lait
+  - yaourt
+  - fromage
+  - jambon
+  - poulet
+  - saumon
+  - pâtes
+  - riz
+  - huile d'olive
+  - chocolat
+  - lessive
+  - papier toilette
+
+# Promos à écarter même si un mot-clé correspond.
+exclude:
+  - laitue
+  - nourriture pour chat
+  - lait corporel
+
+# Enseignes interrogées. Colruyt est désactivé : voir sources/colruyt.py.
+stores:
+  intermarche: true
+  delhaize: true
+  colruyt: false

@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="fr-FR" class="h-100">
+<head>
+	<meta charset="UTF-8">
+<script>
+var gform;gform||(document.addEventListener("gform_main_scripts_loaded",function(){gform.scriptsLoaded=!0}),document.addEventListener("gform/theme/scripts_loaded",function(){gform.themeScriptsLoaded=!0}),window.addEventListener("DOMContentLoaded",function(){gform.domLoaded=!0}),gform={domLoaded:!1,scriptsLoaded:!1,themeScriptsLoaded:!1,isFormEditor:()=>"function"==typeof InitializeEditor,callIfLoaded:function(o){return!(!gform.domLoaded||!gform.scriptsLoaded||!gform.themeScriptsLoaded&&!gform.isFormEditor()||(gform.isFormEditor()&&console.warn("The use of gform.initializeOnLoaded() is deprecated in the form editor context and will be removed in Gravity Forms 3.1."),o(),0))},initializeOnLoaded:function(o){gform.callIfLoaded(o)||(document.addEventListener("gform_main_scripts_loaded",()=>{gform.scriptsLoaded=!0,gform.callIfLoaded(o)}),document.addEventListener("gform/theme/scripts_loaded",()=>{gform.themeScriptsLoaded=!0,gform.callIfLoaded(o)}),window.addEventListener("DOMContentLoaded",()=>{gform.domLoaded=!0,gform.callIfLoaded(o)}))},hooks:{action:{},filter:{}},addAction:function(o,r,e,t){gform.addHook("action",o,r,e,t)},addFilter:function(o,r,e,t){gform.addHook("filter",o,r,e,t)},doAction:function(o){gform.doHook("action",o,arguments)},applyFilters:function(o){return gform.doHook("filter",o,arguments)},removeAction:function(o,r){gform.removeHook("action",o,r)},removeFilter:function(o,r,e){gform.removeHook("filter",o,r,e)},addHook:function(o,r,e,t,n){null==gform.hooks[o][r]&&(gform.hooks[o][r]=[]);var d=gform.hooks[o][r];null==n&&(n=r+"_"+d.length),gform.hooks[o][r].push({tag:n,callable:e,priority:t=null==t?10:t})},doHook:function(r,o,e){var t;if(e=Array.prototype.slice.call(e,1),null!=gform.hooks[r][o]&&((o=gform.hooks[r][o]).sort(function(o,r){return o.priority-r.priority}),o.forEach(function(o){"function"!=typeof(t=o.callable)&&(t=window[t]),"action"==r?t.apply(null,e):e[0]=t.apply(null,e)})),"filter"==r)return e[0]},removeHook:function(o,r,t,n){var e;null!=gform.hooks[o][r]&&(e=(e=gform.hooks[o][r]).filter(function(o,r,e){return!!(null!=n&&n!=o.tag||null!=t&&t!=o.priority)}),gform.hooks[o][r]=e)}});
+</script>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    <link rel="dns-prefetch" href="https://p.typekit.net">
+    <link data-minify="1" rel="preconnect" href="https://www.intermarche.be/files/cache/min/1/zxj0bci.css?ver=1791215349">
+    <link data-minify="1" rel="preload" href="https://www.intermarche.be/files/cache/min/1/zxj0bci.css?ver=1791215349" as="style">
+    <link data-minify="1" rel="preload" href="https://www.intermarche.be/files/cache/min/1/zxj0bci.css?ver=1791215349" data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')" >
+	<script type="text/javascript" data-cookieconsent="ignore">
+	window.dataLayer = window.dataLayer || [];
+
+	function gtag() {
+		dataLayer.push(arguments);
+	}
+
+	gtag("consent", "default", {
+		ad_personalization: "denied",
+		ad_storage: "denied",
+		ad_user_data: "denied",
+		analytics_storage: "denied",
+		functionality_storage: "denied",
+		personalization_storage: "denied",
+		security_storage: "granted",
+		wait_for_update: 500,
+	});
+	gtag("set", "ads_data_redaction", true);
+	gtag("set", "url_passthrough", true);
+</script>
+<script type="text/javascript"
+		id="Cookiebot"
+		src="https://consent.cookiebot.com/uc.js"
+		data-implementation="wp"
+		data-cbid="963af23a-09a8-4a53-a500-f41602e9d280"
+						data-culture="FR"
+				data-blockingmode="auto"
+	></script>
+<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+<link rel="alternate" hreflang="fr" href="https://www.intermarche.be/produits/" />
+<link rel="alternate" hreflang="nl" href="https://www.intermarche.be/nl/producten/" />
+<link rel="alternate" hreflang="x-default" href="https://www.intermarche.be/produits/" />
+
+	<!-- This site is optimized with the Yoast SEO plugin v28.6 - https://yoast.com/product/yoast-seo-wordpress/ -->
+	<title>Produits | Intermarché</title>
+<link data-rocket-prefetch href="https://www.gstatic.com" rel="dns-prefetch">
+<link data-rocket-prefetch href="https://consent.cookiebot.com" rel="dns-prefetch">
+<link data-rocket-prefetch href="https://consentcdn.cookiebot.com" rel="dns-prefetch">
+<link data-rocket-prefetch href="https://www.googletagmanager.com" rel="dns-prefetch">
+<link data-rocket-prefetch href="https://www.google.com" rel="dns-prefetch">
+<style id="rocket-critical-css">@font-face{font-family:"lato";src:url("https://use.typekit.net/af/50d55e/000000000000000000015235/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n9&v=3") format("woff2"),url("https://use.typekit.net/af/50d55e/000000000000000000015235/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n9&v=3") format("woff"),url("https://use.typekit.net/af/50d55e/000000000000000000015235/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n9&v=3") format("opentype");font-display:swap;font-style:normal;font-weight:900;font-stretch:normal}@font-face{font-family:"lato";src:url("https://use.typekit.net/af/220823/000000000000000000015231/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff2"),url("https://use.typekit.net/af/220823/000000000000000000015231/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff"),url("https://use.typekit.net/af/220823/000000000000000000015231/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("opentype");font-display:swap;font-style:normal;font-weight:700;font-stretch:normal}@font-face{font-family:"lato";src:url("https://use.typekit.net/af/180254/00000000000000000001522c/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"),url("https://use.typekit.net/af/180254/00000000000000000001522c/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"),url("https://use.typekit.net/af/180254/00000000000000000001522c/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");font-display:swap;font-style:normal;font-weight:400;font-stretch:normal}@font-face{font-family:"lato";src:url("https://use.typekit.net/af/a18530/00000000000000000001522e/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n5&v=3") format("woff2"),url("https://use.typekit.net/af/a18530/00000000000000000001522e/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n5&v=3") format("woff"),url("https://use.typekit.net/af/a18530/00000000000000000001522e/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n5&v=3") format("opentype");font-display:swap;font-style:normal;font-weight:500;font-stretch:normal}ul .wpml-ls-menu-item a{display:flex;align-items:center}:root{--bs-blue:#007bff;--bs-indigo:#6610f2;--bs-purple:#6f42c1;--bs-pink:#d63384;--bs-red:#e30613;--bs-orange:#fd7e14;--bs-yellow:#ffc107;--bs-green:#3aaa35;--bs-teal:#20c997;--bs-cyan:#0dcaf0;--bs-black:#000;--bs-white:#fff;--bs-gray:#6c757d;--bs-gray-dark:#343a40;--bs-gray-100:#f8f9fa;--bs-gray-200:#e9ecef;--bs-gray-300:#dee2e6;--bs-gray-400:#ced4da;--bs-gray-500:#adb5bd;--bs-gray-600:#6c757d;--bs-gray-700:#495057;--bs-gray-800:#343a40;--bs-gray-900:#212529;--bs-primary:#e30613;--bs-secondary:#000;--bs-success:#3aaa35;--bs-info:#007bff;--bs-warning:#ffc107;--bs-danger:#e30613;--bs-light:#ededed;--bs-dark:#212529;--bs-primary-rgb:227,6,19;--bs-secondary-rgb:0,0,0;--bs-success-rgb:58,170,53;--bs-info-rgb:0,123,255;--bs-warning-rgb:255,193,7;--bs-danger-rgb:227,6,19;--bs-light-rgb:237,237,237;--bs-dark-rgb:33,37,41;--bs-white-rgb:255,255,255;--bs-black-rgb:0,0,0;--bs-body-color-rgb:33,37,41;--bs-body-bg-rgb:255,255,255;--bs-font-sans-serif:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";--bs-font-monospace:SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;--bs-gradient:linear-gradient(180deg,hsla(0,0%,100%,.15),hsla(0,0%,100%,0));--bs-body-font-family:lato,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;--bs-body-font-size:1rem;--bs-body-font-weight:400;--bs-body-line-height:1.5;--bs-body-color:#212529;--bs-body-bg:#fff;--bs-border-width:1px;--bs-border-style:solid;--bs-border-color:#dee2e6;--bs-border-color-translucent:rgba(0,0,0,.175);--bs-border-radius:0.375rem;--bs-border-radius-sm:0.25rem;--bs-border-radius-lg:0.5rem;--bs-border-radius-xl:1rem;--bs-border-radius-2xl:2rem;--bs-border-radius-pill:1.875rem;--bs-link-color:#e30613;--bs-link-hover-color:#b6050f;--bs-code-color:#d63384;--bs-highlight-bg:#fff3cd}*,:after,:before{box-sizing:border-box}@media (prefers-reduced-motion:no-preference){:root{scroll-behavior:smooth}}body{-webkit-text-size-adjust:100%;background-color:#fff;background-color:var(--bs-body-bg);color:#212529;color:var(--bs-body-color);font-family:lato,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;font-family:var(--bs-body-font-family);font-size:1rem;font-size:var(--bs-body-font-size);font-weight:400;font-weight:var(--bs-body-font-weight);line-height:1.5;line-height:var(--bs-body-line-height);margin:0;text-align:var(--bs-body-text-align)}#pdw-mobile-menu .pdw-mobile-menu-header .pdw-mobile-menu-header-title{font-family:lato,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;font-weight:700;line-height:1.2;margin-bottom:.46875rem;margin-top:0}#pdw-mobile-menu .pdw-mobile-menu-header .pdw-mobile-menu-header-title{font-size:calc(1.0875rem + 1.05vw)}@media (min-width:1200px){#pdw-mobile-menu .pdw-mobile-menu-header .pdw-mobile-menu-header-title{font-size:1.875rem}}p{margin-bottom:1rem;margin-top:0}ul{padding-left:2rem}ul{margin-bottom:1rem;margin-top:0}ul ul{margin-bottom:0}b,strong{font-weight:bolder}.small{font-size:.875em}a{color:#e30613;color:var(--bs-link-color);text-decoration:underline}figure{margin:0 0 1rem}img,svg{vertical-align:middle}label{display:inline-block}button{border-radius:0}button,input{font-family:inherit;font-size:inherit;line-height:inherit;margin:0}button{text-transform:none}button{-webkit-appearance:button}::-moz-focus-inner{border-style:none;padding:0}::-webkit-datetime-edit-day-field,::-webkit-datetime-edit-fields-wrapper,::-webkit-datetime-edit-hour-field,::-webkit-datetime-edit-minute,::-webkit-datetime-edit-month-field,::-webkit-datetime-edit-text,::-webkit-datetime-edit-year-field{padding:0}::-webkit-inner-spin-button{height:auto}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-color-swatch-wrapper{padding:0}::file-selector-button{-webkit-appearance:button;font:inherit}iframe{border:0}.img-fluid{height:auto;max-width:100%}.container{--bs-gutter-x:1.875rem;--bs-gutter-y:0;margin-left:auto;margin-right:auto;padding-left:calc(var(--bs-gutter-x)*.5);padding-right:calc(var(--bs-gutter-x)*.5);width:100%}@media (min-width:576px){.container{max-width:540px}}@media (min-width:768px){.container{max-width:720px}}@media (min-width:992px){.container{max-width:960px}}@media (min-width:1200px){.container{max-width:1140px}}.gform_wrapper.gravity-theme .gform_fields input[type=text]{-webkit-appearance:none;-moz-appearance:none;appearance:none;background-clip:padding-box;background-color:#fff;border:1px solid #ced4da;border-radius:.375rem;color:#212529;display:block;font-size:1rem;font-weight:400;line-height:1.5;padding:.375rem .75rem;width:100%}.gform_wrapper.gravity-theme .gform_fields input[type=text]::-webkit-date-and-time-value{height:1.5em}.gform_wrapper.gravity-theme .gform_fields input[type=text]::-moz-placeholder{color:#6c757d;opacity:1}#pdw-mobile-menu .pdw-mobile-menu-content ul.mobile-menu>li.btn-menu>a,.pdw-desktop-menu-logo>li.btn-menu>a{--bs-btn-padding-x:0.75rem;--bs-btn-padding-y:0.375rem;--bs-btn-font-family:;--bs-btn-font-size:1rem;--bs-btn-font-weight:700;--bs-btn-line-height:1.5;--bs-btn-color:#212529;--bs-btn-bg:transparent;--bs-btn-border-width:1px;--bs-btn-border-color:transparent;--bs-btn-border-radius:0.375rem;--bs-btn-hover-border-color:transparent;--bs-btn-box-shadow:inset 0 1px 0 hsla(0,0%,100%,.15),0 1px 1px rgba(0,0,0,.075);--bs-btn-disabled-opacity:0.65;--bs-btn-focus-box-shadow:0 0 0 0.25rem rgba(var(--bs-btn-focus-shadow-rgb),.5);background-color:var(--bs-btn-bg);border:var(--bs-btn-border-width) solid var(--bs-btn-border-color);border-radius:var(--bs-btn-border-radius);color:var(--bs-btn-color);display:inline-block;font-family:var(--bs-btn-font-family);font-size:var(--bs-btn-font-size);font-weight:var(--bs-btn-font-weight);line-height:var(--bs-btn-line-height);padding:var(--bs-btn-padding-y) var(--bs-btn-padding-x);text-align:center;text-decoration:none;vertical-align:middle}.pdw-desktop-menu-logo>li.btn-menu>a{--bs-btn-color:#fff;--bs-btn-bg:#e30613;--bs-btn-border-color:#e30613;--bs-btn-hover-color:#fff;--bs-btn-hover-bg:#c10510;--bs-btn-hover-border-color:#b6050f;--bs-btn-focus-shadow-rgb:231,43,54;--bs-btn-active-color:#fff;--bs-btn-active-bg:#b6050f;--bs-btn-active-border-color:#aa050e;--bs-btn-active-shadow:inset 0 3px 5px rgba(0,0,0,.125);--bs-btn-disabled-color:#fff;--bs-btn-disabled-bg:#e30613;--bs-btn-disabled-border-color:#e30613}#pdw-mobile-menu .pdw-mobile-menu-content ul.mobile-menu>li.btn-menu>a{--bs-btn-color:#fff;--bs-btn-bg:#000;--bs-btn-border-color:#000;--bs-btn-hover-color:#fff;--bs-btn-hover-bg:#000;--bs-btn-hover-border-color:#000;--bs-btn-focus-shadow-rgb:38,38,38;--bs-btn-active-color:#fff;--bs-btn-active-bg:#000;--bs-btn-active-border-color:#000;--bs-btn-active-shadow:inset 0 3px 5px rgba(0,0,0,.125);--bs-btn-disabled-color:#fff;--bs-btn-disabled-bg:#000;--bs-btn-disabled-border-color:#000}.card{--bs-card-spacer-y:0.9375rem;--bs-card-spacer-x:0.9375rem;--bs-card-title-spacer-y:0.46875rem;--bs-card-border-width:1px;--bs-card-border-color:var(--bs-border-color-translucent);--bs-card-border-radius:0.375rem;--bs-card-box-shadow:;--bs-card-inner-border-radius:calc(0.375rem - 1px);--bs-card-cap-padding-y:0.46875rem;--bs-card-cap-padding-x:0.9375rem;--bs-card-cap-bg:rgba(0,0,0,.03);--bs-card-cap-color:;--bs-card-height:;--bs-card-color:;--bs-card-bg:#fff;--bs-card-img-overlay-padding:0.9375rem;--bs-card-group-margin:0.9375rem;word-wrap:break-word;background-clip:border-box;background-color:var(--bs-card-bg);border:var(--bs-card-border-width) solid var(--bs-card-border-color);border-radius:var(--bs-card-border-radius);display:-webkit-box;display:-ms-flexbox;display:flex;flex-direction:column;height:var(--bs-card-height);min-width:0;position:relative}.card-body{color:var(--bs-card-color);flex:1 1 auto;padding:var(--bs-card-spacer-y) var(--bs-card-spacer-x)}.card-text:last-child{margin-bottom:0}.card-img-top{width:100%}.card-img-top{border-top-left-radius:var(--bs-card-inner-border-radius);border-top-right-radius:var(--bs-card-inner-border-radius)}.gfield_description{--bs-alert-bg:transparent;--bs-alert-padding-x:0.9375rem;--bs-alert-padding-y:0.9375rem;--bs-alert-margin-bottom:1rem;--bs-alert-color:inherit;--bs-alert-border-color:transparent;--bs-alert-border:1px solid var(--bs-alert-border-color);--bs-alert-border-radius:0.375rem;background-color:var(--bs-alert-bg);border:var(--bs-alert-border);border-radius:var(--bs-alert-border-radius);color:var(--bs-alert-color);margin-bottom:var(--bs-alert-margin-bottom);padding:var(--bs-alert-padding-y) var(--bs-alert-padding-x);position:relative}.ratio{position:relative;width:100%}.ratio:before{content:"";display:block;padding-top:var(--bs-aspect-ratio)}.ratio>*{height:100%;left:0;position:absolute;top:0;width:100%}.ratio-16x9{--bs-aspect-ratio:56.25%}.d-block{display:block!important}.d-flex{display:-webkit-box!important;display:-ms-flexbox!important;display:flex!important}.d-none{display:none!important}.h-100{height:100%!important}.min-vh-100{min-height:100vh!important}.flex-column{flex-direction:column!important}.justify-content-around{justify-content:space-around!important}.align-items-center{align-items:center!important}.m-0{margin:0!important}.mx-auto{margin-left:auto!important;margin-right:auto!important}.me-05{margin-right:.46875rem!important}.me-1{margin-right:.9375rem!important}.ms-auto{margin-left:auto!important}.mt-n6{margin-top:-5.625rem!important}.px-05{padding-left:.46875rem!important;padding-right:.46875rem!important}.py-1{padding-bottom:.9375rem!important;padding-top:.9375rem!important}.pt-0{padding-top:0!important}.pt-1{padding-top:.9375rem!important}.pb-05{padding-bottom:.46875rem!important}.bg-light{--bs-bg-opacity:1;background-color:rgba(237,237,237,var(--bs-bg-opacity))!important;background-color:rgba(var(--bs-light-rgb),var(--bs-bg-opacity))!important}.bg-black{--bs-bg-opacity:1;background-color:rgba(0,0,0,var(--bs-bg-opacity))!important;background-color:rgba(var(--bs-black-rgb),var(--bs-bg-opacity))!important}.bg-white{--bs-bg-opacity:1;background-color:rgba(255,255,255,var(--bs-bg-opacity))!important;background-color:rgba(var(--bs-white-rgb),var(--bs-bg-opacity))!important}@media (min-width:992px){.d-lg-block{display:block!important}.d-lg-flex{display:-webkit-box!important;display:-ms-flexbox!important;display:flex!important}.d-lg-none{display:none!important}.ms-lg-0{margin-left:0!important}}.glide{box-sizing:border-box;position:relative;width:100%}.glide *{box-sizing:inherit}.glide__slides,.glide__track{overflow:hidden}.glide__slides{-webkit-backface-visibility:hidden;backface-visibility:hidden;display:-webkit-box;display:-ms-flexbox;display:flex;flex-wrap:nowrap;list-style:none;margin:0;padding:0;position:relative;touch-action:pan-Y;transform-style:preserve-3d;white-space:nowrap;width:100%;will-change:transform}.gform_wrapper .top_label .gfield_label{margin-bottom:0}.pdw-desktop-menu{align-items:stretch;display:-webkit-box;display:-ms-flexbox;display:flex;justify-content:space-between}.pdw-desktop-menu,.pdw-desktop-menu ul{list-style:none;margin:0;padding:0}.pdw-desktop-menu>li{align-items:stretch;justify-content:stretch;position:relative}.pdw-desktop-menu>li,.pdw-desktop-menu>li>a{display:-webkit-box;display:-ms-flexbox;display:flex}.pdw-desktop-menu>li>a{align-items:center;justify-content:center;padding:15px}@media (max-width:1199.98px){.pdw-desktop-menu>li>a{letter-spacing:-.5px;padding:.9375rem .46875rem}}.pdw-desktop-menu>li>ul{background:#fff;box-shadow:0 .125rem .25rem rgba(0,0,0,.075);left:0;opacity:0;position:absolute;top:100%;transform:translateY(-30px);width:300px;z-index:1001}.pdw-desktop-menu>li>ul a{padding:7.5px 15px;white-space:normal}.pdw-desktop-menu a{color:#000;display:block;text-decoration:none;white-space:nowrap}#pdw-mobile-menu{background:#fff;bottom:0;box-shadow:0 0 0 transparent;color:#000;font-family:lato,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;max-width:100%;overflow-y:auto;padding:0 .9375rem;position:fixed;right:0;top:0;transform:translateX(300px);width:300px;z-index:100000}#pdw-mobile-menu:after,#pdw-mobile-menu:before{content:" ";display:table}#pdw-mobile-menu ul.mobile-menu{list-style:none;margin:0;padding:5.625rem 0;width:100%}#pdw-mobile-menu ul.mobile-menu li a{align-items:center;text-decoration:none}#pdw-mobile-menu ul.mobile-menu>li{margin:0;padding:0}#pdw-mobile-menu ul.mobile-menu>li:last-child a{border-bottom:0}#pdw-mobile-menu ul.mobile-menu>li>a{border-bottom:1px solid rgba(0,0,0,.15);color:#000;display:-webkit-box;display:-ms-flexbox;display:flex;font-size:1.25rem;font-weight:700;line-height:1.25;padding:.9375rem}#pdw-mobile-menu ul.mobile-menu>li ul.sub-menu{border-bottom:1px solid rgba(0,0,0,.15);list-style:none;margin:0;padding:.46875rem 0 .46875rem .9375rem}#pdw-mobile-menu ul.mobile-menu>li ul.sub-menu li{margin:0;padding:0}#pdw-mobile-menu ul.mobile-menu>li ul.sub-menu li a{color:#000;display:-webkit-box;display:-ms-flexbox;display:flex;font-size:1rem;font-weight:400;line-height:1.25;padding:.46875rem}#pdw-mobile-menu .pdw-mobile-menu-close{align-items:center;-webkit-appearance:none;-moz-appearance:none;appearance:none;background:transparent;border:1px solid rgba(0,0,0,.3);border-radius:.75rem;color:#000;display:-webkit-box;display:-ms-flexbox;display:flex;font-size:1.35rem;height:1.5rem;justify-content:center;line-height:1;margin:0;padding:0;position:absolute;right:.9375rem;top:.9375rem;width:1.5rem}#pdw-mobile-menu .pdw-mobile-menu-close-icon{position:relative;width:.75rem}#pdw-mobile-menu .pdw-mobile-menu-close-icon:after,#pdw-mobile-menu .pdw-mobile-menu-close-icon:before{background:#000;content:"";height:1px;left:0;position:absolute;top:0;transform-origin:center center;width:.75rem}#pdw-mobile-menu .pdw-mobile-menu-close-icon:after{transform:rotate(45deg)}#pdw-mobile-menu .pdw-mobile-menu-close-icon:before{transform:rotate(-45deg)}.pdw-carousel .pdw-carousel-track{margin-bottom:.9375rem;margin-top:.9375rem}.pdw-carousel .pdw-carousel-controls-overlay{align-items:center;bottom:0;display:-webkit-box;display:-ms-flexbox;display:flex;justify-content:space-between;left:10px;opacity:0;position:absolute;right:10px;top:0}@media (max-width:991.98px){.pdw-carousel .pdw-carousel-controls-overlay{left:-5px;opacity:1;right:-5px}}.pdw-carousel .pdw-carousel-controls-overlay .pdw-carousel-next,.pdw-carousel .pdw-carousel-controls-overlay .pdw-carousel-prev{opacity:.5}html{scroll-behavior:smooth}button{-webkit-appearance:none;-moz-appearance:none;appearance:none}.pdw-icon-map-marker{position:relative}.pdw-icon-map-marker:before{background:currentColor;content:"";display:block;height:1em;-webkit-mask:url(https://www.intermarche.be/files/themes/produweb-theme/assets/img/map-marker.svg);mask:url(https://www.intermarche.be/files/themes/produweb-theme/assets/img/map-marker.svg);-webkit-mask-position:center center;mask-position:center center;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:contain;mask-size:contain;width:1em}.pdw-icon-user{position:relative}.pdw-icon-user:before{background:currentColor;content:"";display:block;height:1em;-webkit-mask:url(https://www.intermarche.be/files/themes/produweb-theme/assets/img/user.svg);mask:url(https://www.intermarche.be/files/themes/produweb-theme/assets/img/user.svg);-webkit-mask-position:center center;mask-position:center center;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:contain;mask-size:contain;width:1em}.pdw-icon-instagram{position:relative}.pdw-icon-instagram:before{background:currentColor;content:"";display:block;height:1em;-webkit-mask:url(https://www.intermarche.be/files/themes/produweb-theme/assets/img/instagram.svg);mask:url(https://www.intermarche.be/files/themes/produweb-theme/assets/img/instagram.svg);-webkit-mask-position:center center;mask-position:center center;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:contain;mask-size:contain;width:1em}.pdw-icon-facebook{position:relative}.pdw-icon-facebook:before{background:currentColor;content:"";display:block;height:1em;-webkit-mask:url(https://www.intermarche.be/files/themes/produweb-theme/assets/img/facebook.svg);mask:url(https://www.intermarche.be/files/themes/produweb-theme/assets/img/facebook.svg);-webkit-mask-position:center center;mask-position:center center;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:contain;mask-size:contain;width:1em}.pdw-icon-folder{position:relative}.pdw-icon-folder:before{background:currentColor;content:"";display:block;height:1em;-webkit-mask:url(https://www.intermarche.be/files/themes/produweb-theme/assets/img/folder.svg);mask:url(https://www.intermarche.be/files/themes/produweb-theme/assets/img/folder.svg);-webkit-mask-position:center center;mask-position:center center;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:contain;mask-size:contain;width:1em}.pdw-icon-burger{position:relative}.pdw-icon-burger:before{background:currentColor;content:"";display:block;height:1em;-webkit-mask:url(https://www.intermarche.be/files/themes/produweb-theme/assets/img/burger.svg);mask:url(https://www.intermarche.be/files/themes/produweb-theme/assets/img/burger.svg);-webkit-mask-position:center center;mask-position:center center;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:contain;mask-size:contain;width:1em}.pdw-icon-20:before{height:20px;width:20px}.pdw-icon-24:before{height:24px;width:24px}.pdw-icon-32:before{height:32px;width:32px}.pdw-icon-40:before{height:40px;width:40px}.pdw-icon-white:before{background:#fff;background:var(--bs-white)}.pdw-mobile-menu-wrapper>div{align-items:center;border-right:1px solid #fff;display:-webkit-box;display:-ms-flexbox;display:flex;flex-grow:1;justify-content:center}.pdw-mobile-menu-wrapper>div:last-child{border-right:none}#pdw-mobile-menu .pdw-mobile-menu-header{align-items:center;border-bottom:1px solid rgba(0,0,0,.15);display:-webkit-box;display:-ms-flexbox;display:flex;height:15vh}#pdw-mobile-menu .pdw-mobile-menu-header .pdw-mobile-menu-header-title{margin:0}#pdw-mobile-menu .pdw-mobile-menu-header .pdw-mobile-menu-close{background:#e30613;border:none;margin-left:auto;position:relative;right:0;top:0}#pdw-mobile-menu .pdw-mobile-menu-header .pdw-mobile-menu-close .pdw-mobile-menu-close-icon:after,#pdw-mobile-menu .pdw-mobile-menu-header .pdw-mobile-menu-close .pdw-mobile-menu-close-icon:before{background:#fff}#pdw-mobile-menu .pdw-mobile-menu-footer{align-items:center;border-top:1px solid rgba(0,0,0,.15);display:-webkit-box;display:-ms-flexbox;display:flex;height:15vh;justify-content:center}#pdw-mobile-menu .pdw-mobile-menu-footer ul.mobile-menu-footer{align-items:center;display:-webkit-box;display:-ms-flexbox;display:flex;list-style:none;margin:0;padding:0}#pdw-mobile-menu .pdw-mobile-menu-footer ul.mobile-menu-footer>li{margin:0 5px}#pdw-mobile-menu .pdw-mobile-menu-footer ul.mobile-menu-footer>li.wpml-ls-current-language>a{background:#e30613;color:#fff}#pdw-mobile-menu .pdw-mobile-menu-footer ul.mobile-menu-footer>li>a{border-radius:5px;color:#e30613;display:block;font-size:.8125rem;font-weight:900;padding:.25rem .5rem;text-decoration:none;text-transform:uppercase}#pdw-mobile-menu .pdw-mobile-menu-content{height:70vh;overflow-y:scroll}#pdw-mobile-menu .pdw-mobile-menu-content ul.mobile-menu{padding:0}#pdw-mobile-menu .pdw-mobile-menu-content ul.mobile-menu>li{align-items:center;border-bottom:1px solid rgba(0,0,0,.15);display:-webkit-box;display:-ms-flexbox;display:flex;flex-wrap:wrap}#pdw-mobile-menu .pdw-mobile-menu-content ul.mobile-menu>li.btn-menu>a{align-items:center;display:-webkit-box;display:-ms-flexbox;display:flex;justify-content:center;margin:.9375rem 0;text-transform:uppercase;width:100%}#pdw-mobile-menu .pdw-mobile-menu-content ul.mobile-menu>li>a{border:none;flex-grow:1;font-size:1rem;padding-left:0;padding-right:0}#pdw-mobile-menu .pdw-mobile-menu-content ul.mobile-menu>li .sub-menu{border:none;max-height:0;overflow:hidden;padding:0;width:100%}.pdw-desktop-menu>li{padding:.234375rem}@media (max-width:1199.98px){.pdw-desktop-menu>li{padding:.234375rem .1171875rem}}.pdw-desktop-menu>li.btn-menu{padding:.234375rem}@media (max-width:1199.98px){.pdw-desktop-menu>li.btn-menu{padding:.234375rem .1171875rem}}.pdw-desktop-menu>li.btn-menu:first-child{padding-left:0}.pdw-desktop-menu>li.btn-menu>a{background-color:#e30613;text-transform:uppercase}.pdw-desktop-menu>li>a{border-radius:.375rem}.pdw-desktop-menu>li>ul{background:#000;border-radius:0 0 .5rem .5rem;overflow:hidden}.pdw-desktop-menu>li>ul li{padding:.234375rem}.pdw-desktop-menu>li>ul li a{border-radius:.375rem;color:#fff}.pdw-desktop-menu-logo>li.btn-menu>a{align-items:center;border-width:1.5px;display:-webkit-box;display:-ms-flexbox;display:flex;font-size:.875rem;font-weight:700;text-transform:uppercase}@media (min-width:992px){.pdw-logo{width:205px}.pdw-desktop-menu-top{align-items:center;display:-webkit-box;display:-ms-flexbox;display:flex;list-style:none;margin:0;padding:.625rem 0}.pdw-desktop-menu-top li{margin-left:1.875rem}.pdw-desktop-menu-top li.wpml-ls-menu-item{border:0;margin-left:1.875rem;padding-left:0}.pdw-desktop-menu-top li.wpml-ls-menu-item:last-child{border-left:1px solid #7c7c7c;margin-left:5px;padding-left:5px}.pdw-desktop-menu-top li a{align-items:center;color:#000;display:-webkit-box;display:-ms-flexbox;display:flex;font-size:.75rem;text-decoration:none}.pdw-desktop-menu-logo{align-items:center;display:-webkit-box;display:-ms-flexbox;display:flex;flex-grow:1;list-style:none;margin:0;max-width:65%;padding:0}.pdw-desktop-menu-logo li{margin-left:.9375rem}.pdw-desktop-menu-logo li a{align-items:center;color:#000;display:-webkit-box;display:-ms-flexbox;display:flex;font-size:.875rem;font-weight:700;text-decoration:none}.pdw-desktop-menu>li>a{padding:.46875rem .9375rem}}@media (min-width:992px)and (max-width:1199.98px){.pdw-desktop-menu>li>a{padding:.46875rem}}@media (min-width:992px){.pdw-desktop-menu>li>ul a{color:#000}.pdw-desktop-menu a{color:#fff;font-weight:700}}#content.itm-red{--bs-primary:#e30613;--bs-primary-rgb:227,6,19;--bs-link-color:#e30613;--bs-link-hover-color:rgba(var(--bs-primary-rgb),.75)}#content.itm-red a:not(.btn):not(.gform-button):not(.rev-btn):not(.vc_btn3){color:#e30613;color:var(--bs-link-color)}#pdw-mobile-menu .pdw-mobile-menu-content ul.mobile-menu>li.btn-menu>a:not(.btn-link),.pdw-desktop-menu-logo>li.btn-menu>a:not(.btn-link){text-transform:uppercase}.pdw-newsletter_wrapper.gform_wrapper.gravity-theme .pdw-newsletter .gfield:not(.gfield--width-full){grid-column:span 9}@media (min-width:992px){.pdw-newsletter_wrapper.gform_wrapper.gravity-theme .pdw-newsletter .gfield:not(.gfield--width-full){grid-column:span 10}}body .gform_wrapper.gravity-theme .gfield_description{font-size:12px;font-style:italic;padding:0}.recipe-features .recipe-feature .mdp-stellar-box .mdp-stellar-description,.recipe-features .recipe-feature .mdp-stellar-box[data-voted="0"] .mdp-stellar{display:none}.recipe-features .recipe-feature .mdp-stellar-box .mdp-stellar-buttons .mdp-box-icon{margin:0;padding:0}.recipe-features .recipe-feature .mdp-stellar-box .mdp-stellar-buttons .mdp-box-icon .mdp-stellar-stars,.recipe-features .recipe-feature .mdp-stellar-box .mdp-stellar-buttons .mdp-box-icon .mdp-stellar-tooltip{display:none}.recipe-features .recipe-feature .mdp-stellar-box .mdp-stellar-buttons .mdp-box-icon .mdp-stellar-results-before{background:transparent;border:none;box-shadow:none;margin:0;padding:0}.recipe-features .recipe-feature .mdp-stellar-box .mdp-stellar-buttons .mdp-box-icon .mdp-stellar-results-before:after{display:none}.recipe-features .recipe-feature .mdp-stellar-box .mdp-stellar-buttons .mdp-box-icon .mdp-stellar-results-before .mdp-stellar-results{display:block;font-size:.875rem}.pdw-carousel-item{white-space:normal}body .gform_wrapper.gravity-theme .gfield_label{font-size:.875rem;line-height:1;margin:0 0 5px;padding:0;position:relative;width:auto}:root{--pdw-bg-image-imc-fr:url(https://www.intermarche.be/files/themes/produweb-theme/assets/img/logo_intermoinscheres_fr_2026.svg);--pdw-bg-image-imc-nl:url(https://www.intermarche.be/files/themes/produweb-theme/assets/img/logo_intermoinscheres_nl_2026.svg)}.pdw-product-item .card-img-top{-o-object-fit:contain;object-fit:contain}iframe{max-width:100%}.mdp-stellar-box .mdp-box-icon{display:flex;align-items:center;position:relative;margin:0 calc(var(--mdp-stellar-space)/ -2)}.mdp-stellar-box .mdp-box-icon span{white-space:nowrap}.mdp-stellar-box .mdp-box-icon i{margin:0 calc(var(--mdp-stellar-space)/ 2)}.mdp-stellar-box .mdp-stellar-tooltip{display:block;position:absolute;background:#fff;padding:.25rem .75rem;border-radius:8px;box-shadow:0 3.4px 2.7px rgba(0,0,0,.022),0 8.7px 6.9px rgba(0,0,0,.031),0 17.7px 14.2px rgba(0,0,0,.039),0 36.5px 29.2px rgba(0,0,0,.048),0 100px 80px rgba(0,0,0,.07);font-size:smaller;white-space:nowrap;text-align:center;animation-name:mdp-stellar-tooltip-hide;animation-duration:.1s;animation-fill-mode:both}.mdp-stellar-box .mdp-stellar-tooltip:after{content:"";display:block;width:0;height:0;position:absolute;border-top:8px solid #fff;border-bottom:8px solid transparent;border-left:8px solid transparent;border-right:8px solid transparent;left:calc(50% - 8px);bottom:-15px}.mdp-stellar-box .mdp-stellar-results-before{display:block;position:relative;background:#fff;padding:.75rem 1.25rem;border-radius:8px;box-shadow:0 3.4px 2.7px rgba(0,0,0,.022),0 8.7px 6.9px rgba(0,0,0,.031)}.mdp-stellar-box .mdp-stellar-results-before span{white-space:nowrap}.mdp-stellar-box .mdp-stellar-results-before{margin-right:1.25rem;order:-2}.mdp-stellar-box .mdp-stellar-results-before:after{width:0;height:0;content:"";display:block;position:absolute;border-top:8px solid transparent;border-bottom:8px solid transparent;border-left:8px solid #fff;border-right:8px solid transparent;right:-15px;top:calc(50% - 8px)}.mdp-stellar-box .mdp-stellar-buttons .mdp-stellar-stars{display:flex;align-items:center;position:relative}.mdp-stellar-box .mdp-stellar-buttons i{vertical-align:middle;position:relative;font-size:0;line-height:0;border:none;display:inline}.mdp-stellar-box .mdp-stellar-buttons i svg{height:auto}.mdp-stellar-box .mdp-stellar-buttons i svg:not(.mdp-stellar-bubbles){width:var(--mdp-stellar-size);max-width:var(--mdp-stellar-size);fill:var(--mdp-stellar-color)}.mdp-stellar-box .mdp-stellar-buttons i svg:not(.mdp-stellar-bubbles):last-child{min-width:var(--mdp-stellar-size)}.mdp-stellar-box .mdp-stellar-buttons i svg:not(.mdp-stellar-bubbles):last-child *{fill:var(--mdp-stellar-active)}.mdp-stellar-box .mdp-stellar-buttons i .mdp-stellar-segment{overflow:hidden;position:absolute;top:0}.mdp-stellar-box.bottom-center>div{display:flex;align-items:center;flex-direction:column;text-align:center}.mdp-stellar-box.bottom-center>div .mdp-stellar-description{margin-bottom:.5rem}.mdp-stellar-box.bottom-center>div .mdp-box-icon{text-align:center}@media screen and (max-width:1025px){.mdp-stellar-box .mdp-stellar{flex-wrap:wrap}.mdp-stellar-box .mdp-stellar-buttons>*{margin:.5rem 0}.mdp-stellar-box .mdp-box-icon>*{margin-top:.5rem;margin-bottom:.5rem}.mdp-stellar-box .mdp-stellar-description{margin-top:0!important;margin-bottom:0!important}}@media screen and (max-width:769px){.mdp-stellar-box .mdp-box-icon{flex-wrap:wrap}}@media screen and (max-width:415px){.mdp-stellar-box>div .mdp-stellar-description{max-width:100%!important}}.mdp-hidden{display:none!important}.mdp-stellar-your-rating{font-size:smaller;margin-top:calc(var(--mdp-stellar-size)/ 4)}@keyframes mdp-stellar-tooltip-hide{from{opacity:1;transform:translate3d(0,0,0)}to{opacity:0;transform:translate3d(0,-100%,0)}}.vc_row:after,.vc_row:before{content:" ";display:table}.vc_row:after{clear:both}@media (max-width:767px){.vc_hidden-xs{display:none!important}}@media (min-width:768px) and (max-width:991px){.vc_hidden-sm{display:none!important}}@media (min-width:992px) and (max-width:1199px){.vc_hidden-md{display:none!important}}@media (min-width:1200px) and (max-width:1399px){.vc_hidden-lg{display:none!important}}.vc_column_container{width:100%}.vc_row{margin-left:-15px;margin-right:-15px}.vc_col-sm-12{box-sizing:border-box;min-height:1px;padding-left:15px;padding-right:15px;position:relative}@media (min-width:768px){.vc_col-sm-12{float:left}.vc_col-sm-12{width:100%}}.vc_clearfix:after,.vc_clearfix:before{content:" ";display:table}.vc_clearfix:after{clear:both}.wpb_content_element{margin-bottom:35px}.wpb-content-wrapper{border:none;display:block;margin:0;overflow:unset;padding:0}.vc_row.vc_row-no-padding .vc_column-inner{padding-left:0;padding-right:0}.vc_row[data-vc-full-width]{overflow:hidden}.vc_column-inner:after,.vc_column-inner:before{content:" ";display:table}.vc_column-inner:after{clear:both}.vc_column_container{padding-left:0;padding-right:0}.vc_column_container>.vc_column-inner{box-sizing:border-box;padding-left:15px;padding-right:15px;width:100%}.vc_col-has-fill>.vc_column-inner,.vc_row-has-fill+.vc_row-full-width+.vc_row>.vc_column_container>.vc_column-inner,.vc_row-has-fill>.vc_column_container>.vc_column-inner{padding-top:35px}.wpb_single_image a{border:none;outline:none}.wpb_single_image img{height:auto;max-width:100%;vertical-align:top}.wpb_single_image .vc_single_image-wrapper{display:inline-block;max-width:100%;vertical-align:top}.wpb_single_image.vc_align_center{text-align:center}.wpb_single_image .vc_figure{display:inline-block;margin:0;max-width:100%;vertical-align:top}.gform_wrapper.gravity-theme .gform_validation_container,body .gform_wrapper.gravity-theme .gform_body .gform_fields .gfield.gform_validation_container,body .gform_wrapper.gravity-theme .gform_fields .gfield.gform_validation_container,body .gform_wrapper.gravity-theme .gform_validation_container{display:none!important;left:-9000px;position:absolute!important}@media only screen and (max-width:641px){.gform_wrapper.gravity-theme input:not([type=radio]):not([type=checkbox]):not([type=image]):not([type=file]){line-height:2;min-height:32px}}.gform_wrapper.gravity-theme .gform_hidden{display:none}.gform_wrapper.gravity-theme .gfield input{max-width:100%}.gform_wrapper.gravity-theme *{box-sizing:border-box}.gform_wrapper.gravity-theme .gfield{grid-column:1/-1;min-width:0}@media (max-width:640px){.gform_wrapper.gravity-theme .gfield:not(.gfield--width-full){grid-column:1/-1}}.gform_wrapper.gravity-theme .gfield_label{display:inline-block;font-size:16px;font-weight:700;margin-bottom:8px;padding:0}.gform_wrapper.gravity-theme .gform_footer input{align-self:flex-end}.gform_wrapper.gravity-theme .gfield_description{clear:both;font-family:inherit;font-size:15px;letter-spacing:normal;line-height:inherit;padding-top:13px;width:100%}.gform_wrapper.gravity-theme .gform_footer input{margin-bottom:8px}.gform_wrapper.gravity-theme .gform_footer input+input{margin-left:8px}.gform_wrapper.gravity-theme input[type=text]{font-size:15px;margin-bottom:0;margin-top:0;padding:8px}:host,:root{--fa-style-family-brands:"Font Awesome 6 Brands";--fa-font-brands:normal 400 1em/1 "Font Awesome 6 Brands"}:host,:root{--fa-font-regular:normal 400 1em/1 "Font Awesome 6 Free"}:host,:root{--fa-style-family-classic:"Font Awesome 6 Free";--fa-font-solid:normal 900 1em/1 "Font Awesome 6 Free"}</style><link rel="preload" data-rocket-preload as="image" href="https://www.intermarche.be/files/uploads/2026/09/2026-S37_FOLDER-FR-2.png.webp" imagesrcset="https://www.intermarche.be/files/uploads/2026/09/2026-S37_FOLDER-FR-2.png.webp 600w,https://www.intermarche.be/files/uploads/2026/09/2026-S37_FOLDER-FR-2-300x200.png.webp 300w" imagesizes="(max-width: 600px) 100vw, 600px" fetchpriority="high">
+	<link rel="canonical" href="https://www.intermarche.be/produits/" />
+	<link rel="next" href="https://www.intermarche.be/produits/page/2/" />
+	<meta property="og:locale" content="fr_FR" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Produits | Intermarché" />
+	<meta property="og:url" content="https://www.intermarche.be/produits/" />
+	<meta property="og:site_name" content="Intermarché" />
+	<meta property="og:image" content="https://www.intermarche.be/files/uploads/2024/02/intermarche-og.png" />
+	<meta property="og:image:width" content="1920" />
+	<meta property="og:image:height" content="1080" />
+	<meta property="og:image:type" content="image/png" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https:\/\/schema.org","@graph":[{"@type":"CollectionPage","@id":"https:\/\/www.intermarche.be\/produits\/","url":"https:\/\/www.intermarche.be\/produits\/","name":"Produits | Intermarché","isPartOf":{"@id":"https:\/\/www.intermarche.be\/#website"},"primaryImageOfPage":{"@id":"https:\/\/www.intermarche.be\/produits\/#primaryimage"},"image":{"@id":"https:\/\/www.intermarche.be\/produits\/#primaryimage"},"thumbnailUrl":"https:\/\/www.intermarche.be\/files\/uploads\/2026\/10\/3700245483756.webp","breadcrumb":{"@id":"https:\/\/www.intermarche.be\/produits\/#breadcrumb"},"inLanguage":"fr-FR"},{"@type":"ImageObject","inLanguage":"fr-FR","@id":"https:\/\/www.intermarche.be\/produits\/#primaryimage","url":"https:\/\/www.intermarche.be\/files\/uploads\/2026\/10\/3700245483756.webp","contentUrl":"https:\/\/www.intermarche.be\/files\/uploads\/2026\/10\/3700245483756.webp","width":164,"height":300},{"@type":"BreadcrumbList","@id":"https:\/\/www.intermarche.be\/produits\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https:\/\/www.intermarche.be\/"},{"@type":"ListItem","position":2,"name":"Produits"}]},{"@type":"WebSite","@id":"https:\/\/www.intermarche.be\/#website","url":"https:\/\/www.intermarche.be\/","name":"Intermarché Belgique","description":"","publisher":{"@id":"https:\/\/www.intermarche.be\/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/www.intermarche.be\/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"fr-FR"},{"@type":"Organization","@id":"https:\/\/www.intermarche.be\/#organization","name":"Intermarché","url":"https:\/\/www.intermarche.be\/","logo":{"@type":"ImageObject","inLanguage":"fr-FR","@id":"https:\/\/www.intermarche.be\/#\/schema\/logo\/image\/","url":"https:\/\/www.intermarche.be\/files\/uploads\/2022\/10\/logo-intermarche.png","contentUrl":"https:\/\/www.intermarche.be\/files\/uploads\/2022\/10\/logo-intermarche.png","width":1200,"height":1200,"caption":"Intermarché"},"image":{"@id":"https:\/\/www.intermarche.be\/#\/schema\/logo\/image\/"},"sameAs":["https:\/\/www.facebook.com\/intermarchebelgique","https:\/\/www.instagram.com\/intermarchebelgium\/"]}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel='dns-prefetch' href='//www.google.com' />
+<link rel='dns-prefetch' href='//www.googletagmanager.com' />
+
+<link rel="alternate" type="application/rss+xml" title="Intermarché &raquo; Flux pour Produits" href="https://www.intermarche.be/produits/feed/" />
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-break:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style^=border-color],[style*=";border-color"],[style*="; border-color"]){border-style:solid}html :where([style^=border-top-color],[style*=";border-top-color"],[style*="; border-top-color"]){border-top-style:solid}html :where([style^=border-right-color],[style*=";border-right-color"],[style*="; border-right-color"]){border-right-style:solid}html :where([style^=border-bottom-color],[style*=";border-bottom-color"],[style*="; border-bottom-color"]){border-bottom-style:solid}html :where([style^=border-left-color],[style*=";border-left-color"],[style*="; border-left-color"]){border-left-style:solid}html :where([style^=border-width],[style*=";border-width"],[style*="; border-width"]){border-style:solid}html :where([style^=border-top-width],[style*=";border-top-width"],[style*="; border-top-width"]){border-top-style:solid}html :where([style^=border-right-width],[style*=";border-right-width"],[style*="; border-right-width"]){border-right-style:solid}html :where([style^=border-bottom-width],[style*=";border-bottom-width"],[style*="; border-bottom-width"]){border-bottom-style:solid}html :where([style^=border-left-width],[style*=";border-left-width"],[style*="; border-left-width"]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
+</style>
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<style id="wpgb-head-inline-css">
+.wp-grid-builder:not(.wpgb-template),.wpgb-facet{opacity:0.01}.wpgb-facet fieldset{margin:0;padding:0;border:none;outline:none;box-shadow:none}.wpgb-facet fieldset:last-child{margin-bottom:40px;}.wpgb-facet fieldset legend.wpgb-sr-only{height:1px;width:1px}
+/*# sourceURL=wpgb-head-inline-css */
+</style>
+<link rel='preload'  href='https://www.intermarche.be/files/plugins/sitepress-multilingual-cms/templates/language-switchers/menu-item/style.min.css?ver=1' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')"  media='all' />
+<link data-minify="1" rel='preload'  href='https://www.intermarche.be/files/cache/min/1/files/themes/produweb-theme/assets/css/style.css?ver=1791215349' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')"  media='all' />
+<link rel='preload'  href='https://www.intermarche.be/files/plugins/stellar/css/stellar.min.css?ver=2.4.0' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')"  media='all' />
+<style id="mdp-stellar-inline-css">
+
+        .mdp-stellar-box, .mdp-stellar-additional-box {
+            --mdp-stellar-size: 20px;
+            --mdp-stellar-color: rgba(240, 128, 0, 0.3);
+            --mdp-stellar-active: rgba(240, 128, 0, 1);
+            --mdp-stellar-hover: rgba(240, 128, 0, 0.8);
+            --mdp-stellar-space: 10px;
+        }
+        .mdp-stellar-top {
+            --mdp-stellar-size: 20px;
+            --mdp-stellar-color: rgba(240, 128, 0, 0.3);
+            --mdp-stellar-active: rgba(240, 128, 0, 1);
+            --mdp-stellar-hover: rgba(240, 128, 0, 0.8);
+            --mdp-stellar-space: 10px;
+            --mdp-stellar-gutter: 0px;
+        }
+/*# sourceURL=mdp-stellar-inline-css */
+</style>
+<script id="wpml-cookie-js-extra">
+var wpml_cookies = {"wp-wpml_current_language":{"value":"fr","expires":"Tue, 13 Oct 2026 06:45:59 GMT","path":"/"}};
+//# sourceURL=wpml-cookie-js-extra
+</script>
+<script data-minify="1" data-wp-strategy="defer" defer id="wpml-cookie-js" src="https://www.intermarche.be/files/cache/min/1/files/plugins/sitepress-multilingual-cms/res/js/cookies/language-cookie.js?ver=1791215349"></script>
+<script id="wp-consent-api-js-extra">
+var consent_api = {"consent_type":"optin","waitfor_consent_hook":"","cookie_expiration":"30","cookie_prefix":"wp_consent","services":[]};
+//# sourceURL=wp-consent-api-js-extra
+</script>
+<script id="wp-consent-api-js" src="https://www.intermarche.be/files/plugins/wp-consent-api/assets/js/wp-consent-api.min.js?ver=2.1.0" data-rocket-defer defer></script>
+<script id="cookiebot-wp-consent-level-api-integration-js-extra">
+var cookiebot_category_mapping = {"n=1;p=1;s=1;m=1":{"preferences":1,"statistics":1,"statistics-anonymous":0,"marketing":1},"n=1;p=1;s=1;m=0":{"preferences":1,"statistics":1,"statistics-anonymous":1,"marketing":0},"n=1;p=1;s=0;m=1":{"preferences":1,"statistics":0,"statistics-anonymous":0,"marketing":1},"n=1;p=1;s=0;m=0":{"preferences":1,"statistics":0,"statistics-anonymous":0,"marketing":0},"n=1;p=0;s=1;m=1":{"preferences":0,"statistics":1,"statistics-anonymous":0,"marketing":1},"n=1;p=0;s=1;m=0":{"preferences":0,"statistics":1,"statistics-anonymous":0,"marketing":0},"n=1;p=0;s=0;m=1":{"preferences":0,"statistics":0,"statistics-anonymous":0,"marketing":1},"n=1;p=0;s=0;m=0":{"preferences":0,"statistics":0,"statistics-anonymous":0,"marketing":0}};
+var cookiebot_consent_type = {"type":"optin"};
+//# sourceURL=cookiebot-wp-consent-level-api-integration-js-extra
+</script>
+<script id="cookiebot-wp-consent-level-api-integration-js" src="https://www.intermarche.be/files/plugins/cookiebot/assets/js/frontend/cb_frame/cookiebot-wp-consent-level-api-integration.js?ver=4.7.3"></script>
+
+<!-- Extrait de code de la balise Google (gtag.js) ajouté par Site Kit -->
+<!-- Extrait Google Analytics ajouté par Site Kit -->
+<script data-cookieconsent="statistics,marketing" id="google_gtagjs-js" src="https://www.googletagmanager.com/gtag/js?id=G-3EYMSWRWKS" type="text/plain" async></script>
+<script data-cookieconsent="statistics,marketing" id="google_gtagjs-js-after" type="text/plain">
+window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}
+gtag("set","linker",{"domains":["www.intermarche.be"]});
+gtag("js", new Date());
+gtag("set", "developer_id.dZTNiMT", true);
+gtag("config", "G-3EYMSWRWKS");
+//# sourceURL=google_gtagjs-js-after
+</script>
+<script></script><link rel="https://api.w.org/" href="https://www.intermarche.be/wp-json/" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.intermarche.be/xmlrpc.php?rsd" />
+<meta name="generator" content="WordPress 7.1.3" />
+<meta name="generator" content="WPML ver:5.0.2 stt:37,4;" />
+<meta name="generator" content="Site Kit by Google 1.188.0" /><noscript><style>.wp-grid-builder .wpgb-card.wpgb-card-hidden .wpgb-card-wrapper{opacity:1!important;visibility:visible!important;transform:none!important}.wpgb-facet {opacity:1!important;pointer-events:auto!important}.wpgb-facet *:not(.wpgb-pagination-facet){display:none}</style></noscript><meta name="generator" content="Powered by WPBakery Page Builder - drag and drop page builder for WordPress."/>
+
+<!-- Extrait Google Tag Manager ajouté par Site Kit -->
+<script>
+			( function( w, d, s, l, i ) {
+				w[l] = w[l] || [];
+				w[l].push( {'gtm.start': new Date().getTime(), event: 'gtm.js'} );
+				var f = d.getElementsByTagName( s )[0],
+					j = d.createElement( s ), dl = l != 'dataLayer' ? '&l=' + l : '';
+				j.async = true;
+				j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+				f.parentNode.insertBefore( j, f );
+			} )( window, document, 'script', 'dataLayer', 'GTM-KMV6B3H' );
+			
+</script>
+
+<!-- Terminer l&#039;extrait de Google Tag Manager ajouté par Site Kit -->
+<style id="wp-custom-css">
+body .gform_wrapper.gravity-theme .gfield_label{
+	display: block;
+}
+.gform_wrapper.gravity-theme .field_sublabel_below .ginput_complex {
+    align-items: flex-start;
+	justify-content: space-between;
+}
+.gform_wrapper.gravity-theme .ginput_complex .ginput_container_date{
+	flex-grow: 1;
+}
+body #content .gravity-theme.ui-datepicker .ui-datepicker-calendar .ui-datepicker-current-day .ui-state-default {
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+    color: white;
+}
+#content {
+	overflow-x: hidden;
+}
+.gform_wrapper.gravity-theme .gfield--type-time.field_sublabel_below .ginput_complex {
+    align-items: flex-start;
+    justify-content: start;
+}
+</style>
+<noscript><style> .wpb_animate_when_almost_visible { opacity: 1; }</style></noscript><script>
+/*! loadCSS rel=preload polyfill. [c]2017 Filament Group, Inc. MIT License */
+(function(w){"use strict";if(!w.loadCSS){w.loadCSS=function(){}}
+var rp=loadCSS.relpreload={};rp.support=(function(){var ret;try{ret=w.document.createElement("link").relList.supports("preload")}catch(e){ret=!1}
+return function(){return ret}})();rp.bindMediaToggle=function(link){var finalMedia=link.media||"all";function enableStylesheet(){link.media=finalMedia}
+if(link.addEventListener){link.addEventListener("load",enableStylesheet)}else if(link.attachEvent){link.attachEvent("onload",enableStylesheet)}
+setTimeout(function(){link.rel="stylesheet";link.media="only x"});setTimeout(enableStylesheet,3000)};rp.poly=function(){if(rp.support()){return}
+var links=w.document.getElementsByTagName("link");for(var i=0;i<links.length;i++){var link=links[i];if(link.rel==="preload"&&link.getAttribute("as")==="style"&&!link.getAttribute("data-loadcss")){link.setAttribute("data-loadcss",!0);rp.bindMediaToggle(link)}}};if(!rp.support()){rp.poly();var run=w.setInterval(rp.poly,500);if(w.addEventListener){w.addEventListener("load",function(){rp.poly();w.clearInterval(run)})}else if(w.attachEvent){w.attachEvent("onload",function(){rp.poly();w.clearInterval(run)})}}
+if(typeof exports!=="undefined"){exports.loadCSS=loadCSS}
+else{w.loadCSS=loadCSS}}(typeof global!=="undefined"?global:this))
+</script>    <link data-minify="1" rel='preload'  href='https://www.intermarche.be/files/cache/min/1/files/plugins/js_composer/assets/css/js_composer.min.css?ver=1791215349' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')"  media='all' />
+<link data-minify="1" rel='preload'  href='https://www.intermarche.be/files/cache/min/1/files/plugins/gravityforms/assets/css/dist/basic.min.css?ver=1791215349' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')"  media='all' />
+<link rel='preload'  href='https://www.intermarche.be/files/plugins/gravityforms/assets/css/dist/theme-components.min.css?ver=3.1.2' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')"  media='all' />
+<link rel='preload'  href='https://www.intermarche.be/files/plugins/gravityforms/assets/css/dist/theme.min.css?ver=3.1.2' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')"  media='all' />
+<link rel='preload'  href='https://www.intermarche.be/files/plugins/js_composer/assets/lib/vendor/dist/@fortawesome/fontawesome-free/css/v4-shims.min.css?ver=9.0.1' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')"  media='all' />
+<link data-minify="1" rel='preload'  href='https://www.intermarche.be/files/cache/min/1/files/plugins/js_composer/assets/lib/vendor/dist/@fortawesome/fontawesome-free/css/all.min.css?ver=1791215349' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')"  media='all' />
+<link data-minify="1" rel='preload'  href='https://www.intermarche.be/files/cache/min/1/files/plugins/wp-grid-builder/public/css/facets.css?ver=1791215355' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')"  media='all' />
+<link data-minify="1" rel='preload'  href='https://www.intermarche.be/files/cache/min/1/files/uploads/wpgb/facets/styles.css?ver=1791215355' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')"  media='all' />
+
+<meta name="generator" content="WP Rocket 3.23.4" data-wpr-features="wpr_defer_js wpr_minify_js wpr_async_css wpr_preconnect_external_domains wpr_oci wpr_cache_webp wpr_minify_css wpr_cdn wpr_preload_links wpr_desktop" /></head>
+<body class="archive post-type-archive post-type-archive-product wp-theme-produweb-theme min-vh-100 d-flex flex-column wpb-js-composer js-comp-ver-9.0.1 vc_responsive">
+		<!-- Extrait Google Tag Manager (noscript) ajouté par Site Kit -->
+		<noscript>
+			<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KMV6B3H" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+		</noscript>
+		<!-- Terminer l&#039;extrait de Google Tag Manager (noscript) ajouté par Site Kit -->
+		<section  class="bg-light d-none d-lg-block d-print-none">
+    <div  class="container d-flex">
+        <ul id="menu-menu-du-haut" class="pdw-desktop-menu-top ms-auto"><li id="menu-item-34107" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-34107"><a href="https://www.intermarche.be/jobs/">Jobs</a></li>
+<li id="menu-item-5149" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5149"><a href="/faq/">Contact</a></li>
+<li id="menu-item-wpml-ls-5-fr" class="menu-item wpml-ls-slot-5 wpml-ls-item wpml-ls-item-fr wpml-ls-current-language wpml-ls-menu-item wpml-ls-first-item menu-item-type-wpml_ls_menu_item menu-item-object-wpml_ls_menu_item menu-item-wpml-ls-5-fr"><a href="https://www.intermarche.be/produits/" aria-current="page"><span class="wpml-ls-native" lang="fr">FR</span></a></li>
+<li id="menu-item-wpml-ls-5-nl" class="menu-item wpml-ls-slot-5 wpml-ls-item wpml-ls-item-nl wpml-ls-menu-item wpml-ls-last-item menu-item-type-wpml_ls_menu_item menu-item-object-wpml_ls_menu_item menu-item-wpml-ls-5-nl"><a href="https://www.intermarche.be/nl/producten/" title="Passer à : NL" aria-label="Passer à : NL"><span class="wpml-ls-native" lang="nl">NL</span></a></li>
+</ul>    </div>
+</section>
+<section  class="bg-white d-print-none">
+    <div  class="container d-flex py-1">
+        <a class="pdw-logo-link mx-auto ms-lg-0" href="https://www.intermarche.be">
+            <img class="pdw-logo img-fluid" width="260" height="60" src="https://www.intermarche.be/files/themes/produweb-theme/assets/img/logo-intermarche-fr.svg" alt="Logo" />
+        </a>
+        <ul id="menu-menu-du-logo" class="pdw-desktop-menu-logo d-none d-lg-flex"><li id="menu-item-4761" class="btn-menu me-1 menu-item menu-item-type-custom menu-item-object-custom menu-item-4761"><a href="/magasins/"><span class="pdw-icon-map-marker pdw-icon-20 pdw-icon-white me-05"></span> Trouver un magasin</a></li>
+<li id="menu-item-22" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22"><a target="_blank" href="https://moncompte.intermarche.be/"><span class="pdw-icon-user pdw-icon-20 me-05"></span> Mon compte</a></li>
+<li id="menu-item-23" class="ms-auto menu-item menu-item-type-custom menu-item-object-custom menu-item-23"><a target="_blank" href="https://www.facebook.com/intermarchebelgique"><span class="pdw-icon-facebook pdw-icon-32"></span></a></li>
+<li id="menu-item-24" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-24"><a target="_blank" href="https://www.instagram.com/intermarchebelgium/"><span class="pdw-icon-instagram pdw-icon-32"></span></a></li>
+</ul>    </div>
+</section>
+<section  class="bg-black d-print-none">
+    <div  class="container">
+        <div  class="pdw-mobile-menu-wrapper d-flex d-lg-none align-items-center justify-content-around py-1">
+            <div>
+                <a class="d-block" href="https://www.intermarche.be/folders/">
+                    <span class="pdw-icon-folder pdw-icon-40 pdw-icon-white"></span>
+                </a>
+            </div>
+            <div>
+                <a class="d-block" href="https://www.intermarche.be/magasins/">
+                    <span class="pdw-icon-map-marker pdw-icon-32 pdw-icon-white"></span>
+                </a>
+            </div>
+            <div class="pdw-mobile-menu-open" data-target="pdw-mobile-menu">
+                <span class="pdw-icon-burger pdw-icon-24 pdw-icon-white"></span>
+            </div>
+        </div>
+        <div  class="pdw-desktop-nav-wrapper d-none d-lg-flex">
+            <div class="pdw-desktop-menu-wrapper">
+                <ul id="menu-menu-principal" class="pdw-desktop-menu"><li id="menu-item-143784" class="btn-menu menu-item menu-item-type-custom menu-item-object-custom menu-item-143784"><a href="https://www.intermarche.be/folders">Folders</a></li>
+<li id="menu-item-232250" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-232250"><a href="https://www.intermarche.be/produits/" aria-current="page">Promotions</a></li>
+<li id="menu-item-143786" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-143786"><a href="https://www.intermarche.be/nos-actions/">Nos actions</a></li>
+<li id="menu-item-143787" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-143787"><a href="https://www.intermarche.be/la-carte-intermarche/">La carte Intermarché</a></li>
+<li id="menu-item-143788" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-143788"><a href="https://www.intermarche.be/nos-rayons/">Nos rayons</a>
+<ul class="sub-menu">
+	<li id="menu-item-143791" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-143791"><a href="https://www.intermarche.be/nos-rayons/boucherie/">Boucherie</a></li>
+	<li id="menu-item-143792" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-143792"><a href="https://www.intermarche.be/nos-rayons/fromagerie/">Fromagerie</a></li>
+	<li id="menu-item-143793" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-143793"><a href="https://www.intermarche.be/nos-rayons/poissonnerie/">Poissonnerie</a></li>
+	<li id="menu-item-143794" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-143794"><a href="https://www.intermarche.be/nos-rayons/boulangerie/">Boulangerie</a></li>
+	<li id="menu-item-143796" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-143796"><a href="https://www.intermarche.be/nos-rayons/vins/">Vins</a></li>
+</ul>
+</li>
+<li id="menu-item-143789" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-143789"><a href="/recettes/">Recettes</a></li>
+<li id="menu-item-143790" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-143790"><a href="https://www.intermarche.be/qui-sommes-nous/">Qui sommes-nous ?</a>
+<ul class="sub-menu">
+	<li id="menu-item-143797" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-143797"><a href="https://www.intermarche.be/qui-sommes-nous/notre-histoire/">Notre histoire</a></li>
+	<li id="menu-item-143798" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-143798"><a href="https://www.intermarche.be/avec-vous-pour-demain/">Avec vous pour demain</a></li>
+	<li id="menu-item-143799" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-143799"><a href="https://www.intermarche.be/qui-sommes-nous/nos-marques-intermarche/">Nos marques InterMoinsChères</a></li>
+	<li id="menu-item-233547" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-233547"><a href="https://www.intermarche.be/lotto-intermarche/">Lotto-Intermarché</a></li>
+	<li id="menu-item-212155" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-212155"><a href="https://www.intermarche.be/qui-sommes-nous/intermarche-partenaire-officiel-du-televie/">Partenaire officiel du Télévie</a></li>
+	<li id="menu-item-143801" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-143801"><a href="https://www.devenir-mousquetaires.be/">Ouvrir son magasin</a></li>
+</ul>
+</li>
+<li id="menu-item-240452" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-240452"><a href="https://www.intermarche.be/nos-actions/anniversaire/">35 jours de surprises !</a></li>
+</ul>            </div>
+        </div>
+    </div>
+</section>
+
+<nav class="pdw-mobile-menu pdw-mobile-menu-accordion d-block d-lg-none d-print-none" id="pdw-mobile-menu">
+    <header class="pdw-mobile-menu-header">
+        <div class="pdw-mobile-menu-header-title">
+            Menu        </div>
+        <button class="pdw-mobile-menu-close" data-target="pdw-mobile-menu" aria-label="Fermer le menu mobile">
+            <span class="pdw-mobile-menu-close-icon"></span>
+        </button>
+    </header>
+    <section class="pdw-mobile-menu-content">
+        <ul id="menu-menu-mobile" class="mobile-menu"><li id="menu-item-107" class="btn-menu menu-item menu-item-type-custom menu-item-object-custom menu-item-107"><a href="https://moncompte.intermarche.be/"><span class="pdw-icon-user pdw-icon-white pdw-icon-24 me-05"></span> Mon compte</a></li>
+<li id="menu-item-4356" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4356"><a href="/folders/">Folders</a></li>
+<li id="menu-item-232249" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-232249"><a href="https://www.intermarche.be/produits/" aria-current="page">Promotions</a></li>
+<li id="menu-item-47152" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-47152"><a href="https://www.intermarche.be/nos-actions/">Nos actions</a></li>
+<li id="menu-item-110" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-110"><a href="https://www.intermarche.be/la-carte-intermarche/">La carte Intermarché</a></li>
+<li id="menu-item-111" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-111"><a href="https://www.intermarche.be/nos-rayons/">Nos rayons</a>
+<ul class="sub-menu">
+	<li id="menu-item-25310" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-25310"><a href="https://www.intermarche.be/nos-rayons/boucherie/">Boucherie</a></li>
+	<li id="menu-item-25312" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-25312"><a href="https://www.intermarche.be/nos-rayons/fromagerie/">Fromagerie</a></li>
+	<li id="menu-item-25313" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-25313"><a href="https://www.intermarche.be/nos-rayons/poissonnerie/">Poissonnerie</a></li>
+	<li id="menu-item-25311" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-25311"><a href="https://www.intermarche.be/nos-rayons/boulangerie/">Boulangerie</a></li>
+	<li id="menu-item-25314" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-25314"><a href="https://www.intermarche.be/nos-rayons/vins/">Vins</a></li>
+</ul>
+</li>
+<li id="menu-item-214" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-214"><a href="/recettes/">Recettes</a></li>
+<li id="menu-item-113" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-113"><a href="https://www.intermarche.be/qui-sommes-nous/">Qui sommes-nous ?</a>
+<ul class="sub-menu">
+	<li id="menu-item-25317" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-25317"><a href="https://www.intermarche.be/qui-sommes-nous/notre-histoire/">Notre histoire</a></li>
+	<li id="menu-item-42105" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-42105"><a href="https://www.intermarche.be/avec-vous-pour-demain/">Avec vous pour demain</a></li>
+	<li id="menu-item-30910" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30910"><a href="https://www.intermarche.be/qui-sommes-nous/nos-marques-intermarche/">Nos marques InterMoinsChères</a></li>
+	<li id="menu-item-30884" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30884"><a href="https://www.intermarche.be/lotto-intermarche/">Lotto-Intermarché</a></li>
+	<li id="menu-item-212156" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-212156"><a href="https://www.intermarche.be/qui-sommes-nous/intermarche-partenaire-officiel-du-televie/">Partenaire officiel du Télévie</a></li>
+	<li id="menu-item-25373" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-25373"><a href="https://www.devenir-mousquetaires.be/">Ouvrir son magasin</a></li>
+</ul>
+</li>
+<li id="menu-item-239114" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-239114"><a href="https://www.intermarche.be/nos-actions/la-foire-aux-vins-dautomne/">Foire aux vins d&rsquo;automne</a></li>
+<li id="menu-item-5085" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5085"><a href="/magasins/">Trouver un magasin</a></li>
+<li id="menu-item-34109" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-34109"><a href="https://www.intermarche.be/jobs/">Jobs</a></li>
+<li id="menu-item-5150" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5150"><a href="/faq/">Contact</a></li>
+</ul>    </section>
+    <footer class="pdw-mobile-menu-footer">
+        <ul id="menu-menu-de-langue-mobile" class="mobile-menu-footer"><li id="menu-item-wpml-ls-11-fr" class="menu-item wpml-ls-slot-11 wpml-ls-item wpml-ls-item-fr wpml-ls-current-language wpml-ls-menu-item wpml-ls-first-item menu-item-type-wpml_ls_menu_item menu-item-object-wpml_ls_menu_item menu-item-wpml-ls-11-fr"><a href="https://www.intermarche.be/produits/" aria-current="page"><span class="wpml-ls-native" lang="fr">FR</span></a></li>
+<li id="menu-item-wpml-ls-11-nl" class="menu-item wpml-ls-slot-11 wpml-ls-item wpml-ls-item-nl wpml-ls-menu-item wpml-ls-last-item menu-item-type-wpml_ls_menu_item menu-item-object-wpml_ls_menu_item menu-item-wpml-ls-11-nl"><a href="https://www.intermarche.be/nl/producten/" title="Passer à : NL" aria-label="Passer à : NL"><span class="wpml-ls-native" lang="nl">NL</span></a></li>
+</ul>    </footer>
+</nav>
+<div  class="pdw-mobile-menu-overlay pdw-mobile-menu-close"></div>    <section  id="content">
+            <header  class="page-header bg-primary text-white d-print-none">
+        <div  class="bg-breadcrumbs">
+            <div  class="container">
+                <div id="breadcrumbs" class="breadcrumbs text-primary text-truncate"><span><span><a href="https://www.intermarche.be/"><span class="pdw-icon pdw-icon-home pdw-icon-primary pdw-icon-16 d-inline-flex me-05"></span> Accueil</a></span> <span class="pdw-icon pdw-icon-chevron-right pdw-icon-primary d-inline-flex mx-05"></span> <span class="breadcrumb_last" aria-current="page">Produits</span></span></div>            </div>
+        </div>
+    </header>
+        	    <div  class="bg-primary py-1">
+<div  class="container pt-lg-1">
+    <div  class="row">
+	                <div class="col-12 col-lg-5 col-xl-3 hb-lg-4 d-none d-lg-flex flex-column">
+                <div  class="mt-auto">
+                                                            <div class="card card-item text-center h-100">
+			<a class="card-link stretched-link" href="https://www.intermarche.be/folders/decouvrez-notre-folder-anniversaire-du-13-10-26/">
+			<img width="600" height="400" src="https://www.intermarche.be/files/uploads/2026/10/2026-S37_FOLDER-FR.png.webp" class="card-img-top img-fluid wp-post-image" alt="" decoding="async" fetchpriority="high" srcset="https://www.intermarche.be/files/uploads/2026/10/2026-S37_FOLDER-FR.png.webp 600w,https://www.intermarche.be/files/uploads/2026/10/2026-S37_FOLDER-FR-300x200.png.webp 300w" sizes="(max-width: 600px) 100vw, 600px" />		</a>
+		<div class="card-body">
+		<div class="card-title fw-bold">Découvrez notre folder Anniversaire du 13/10</div>
+		<p class="card-text small">
+							Valide du 13/10 au 18/10/2026					</p>
+	</div>
+	<div class="card-footer bg-transparent border-0 pt-0 pb-1">
+		<a class="btn btn-secondary btn-sm w-100" href="https://www.intermarche.be/folders/decouvrez-notre-folder-anniversaire-du-13-10-26/" target="_blank">Lire le folder</a>
+	</div>
+</div>                                    </div>
+            </div>
+	            <div class="col-12 col-lg-7 col-xl-9 order-lg-first text-white">
+            <h1 class="product-archive-title h1 my-1">
+                <p>Les promotions <em>du moment</em></p>
+            </h1>
+            <div class="product-archive-description mb-lg-2">
+                <p>Chaque semaine, nous vous proposons des nouvelles <strong>offres</strong> et <strong>promotions</strong> via nos <strong>folders</strong>.<br />
+Que ce soit des promotions par pack de type <strong>1+1 gratis</strong>, des <strong>pourcentages de remise directs</strong> ou des <strong>remises en euros sur votre carte Intermarché</strong>, nous vous accompagnons quotidiennement pour une vie moins chère.</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-7 col-12">
+                    <div class="product-search pb-1">
+	                    <div class="wpgb-facet wpgb-loading wpgb-facet-16" data-facet="16" data-grid="wpgb-content">	<fieldset>
+		<legend class="wpgb-facet-title wpgb-sr-only">Recherche instantanée</legend>
+		<div class="wpgb-search-facet"><label>
+				<span class="wpgb-sr-only">Rechercher</span>
+				<input class="wpgb-input" type="search" name="search" placeholder="Recherche" value="" autocomplete="off">
+				<svg class="wpgb-input-icon" viewBox="0 0 24 24" height="16" width="16" aria-hidden="true" focusable="false"><path d="M17.5 17.5 23 23Zm-16-7a9 9 0 1 1 9 9 9 9 0 0 1-9-9Z"/></svg>
+			</label><button type="button" class="wpgb-clear-button" hidden><span class="wpgb-sr-only">Effacer</span><svg viewBox="0 0 24 24" height="24" width="24" aria-hidden="true" focusable="false"><path d="m12 12-4.25 4.75L12.001 12 7.75 7.25 12.001 12l4.249-4.75L12 12l4.25 4.75Z"/></svg></button></div>	</fieldset>
+	</div>                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-lg-3">
+            <div id="product-facets" class="pdw-facets product-facets card pt-1 px-1 pb-0 mt-lg-2">
+                <button class="pdw-mobile-menu-close d-lg-none" data-target="product-facets" aria-label="Fermer le menu mobile">
+                    <span class="pdw-mobile-menu-close-icon"></span>
+                </button>
+                <div class="h5 mb-1">
+                    Filtres                </div>
+                <div class="d-flex flex-wrap">
+                    <div class="wpgb-facet wpgb-loading wpgb-facet-9" data-facet="9" data-grid="wpgb-content"></div>                    <div class="wpgb-facet wpgb-loading wpgb-facet-13" data-facet="13" data-grid="wpgb-content"><button type="button" class="wpgb-button wpgb-reset" name="reinitialiser">Tout effacer</button></div>                </div>
+                <div class="wpgb-facet wpgb-loading wpgb-facet-26" data-facet="26" data-grid="wpgb-content">	<h4 class="wpgb-facet-title">Trier par</h4>
+		<fieldset>
+		<legend class="wpgb-facet-title wpgb-sr-only">Trier par</legend>
+		<div class="wpgb-sort-facet"><label><span class="wpgb-sr-only">Trier par</span><select class="wpgb-sort wpgb-select" name="products_sort"><option value="title_asc">Nom A-Z</option><option value="title_desc">Nom Z-A</option><option value="acf/price_asc">Prix bas-haut</option><option value="acf/price_desc">Prix haut-bas</option></select><span class="wpgb-select-controls"><span class="wpgb-select-separator"></span><svg class="wpgb-select-toggle" viewBox="0 0 24 24" height="24" width="24" aria-hidden="true" focusable="false"><path d="m12 14.536-.045.043.045-.043-5.3-5.114 5.3 5.114 5.3-5.114-5.3 5.114.045.043Z"/></svg></span></label></div>	</fieldset>
+	</div>                <div class="wpgb-facet wpgb-loading wpgb-facet-22" data-facet="22" data-grid="wpgb-content">	<h4 class="wpgb-facet-title">Filtrer par</h4>
+		<fieldset>
+		<legend class="wpgb-facet-title wpgb-sr-only">Filtrer par</legend>
+		<div class="wpgb-checkbox-facet"><ul class="wpgb-hierarchical-list"><li><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="filter_options[]" value="selection-mousquetaires"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Sélection mousquetaires</span></div></li></ul></div>	</fieldset>
+	</div>                <div class="wpgb-facet wpgb-loading wpgb-facet-23" data-facet="23" data-grid="wpgb-content">	<h4 class="wpgb-facet-title">Catégories</h4>
+		<fieldset>
+		<legend class="wpgb-facet-title wpgb-sr-only">Catégories</legend>
+		<div class="wpgb-checkbox-facet"><ul class="wpgb-hierarchical-list"><li><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="produits_categories[]" value="animaux"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Animaux</span></div></li><li><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="produits_categories[]" value="boucherie"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Boucherie</span></div></li><li><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="produits_categories[]" value="boulangerie-patisserie"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Boulangerie &amp; pâtisserie</span></div></li><li><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="produits_categories[]" value="charcuterie"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Charcuterie</span></div></li><li><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="produits_categories[]" value="cremerie"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Crèmerie</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="produits_categories[]" value="droguerie"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Droguerie</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="produits_categories[]" value="epicerie-salee"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Épicerie salée</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="produits_categories[]" value="epicerie-sucree"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Épicerie sucrée</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="produits_categories[]" value="fromage"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Fromage</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="produits_categories[]" value="fruits-legumes-frais-et-secs"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Fruits &amp; légumes frais et secs</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="produits_categories[]" value="hygiene-corporelle"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Hygiène corporelle</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="produits_categories[]" value="non-alimentaire"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Non-alimentaire</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="produits_categories[]" value="poissons-crustaces"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Poissons &amp; crustacés</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="produits_categories[]" value="softs-bieres"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Softs &amp; bières</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="produits_categories[]" value="surgeles"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Surgelés</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="produits_categories[]" value="traiteur-plats-vegetariens"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Traiteur &amp; plats végétariens</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="produits_categories[]" value="vins-bulles-alcools"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Vins, bulles &amp; alcools</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="produits_categories[]" value="volaille"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Volaille</span></div></li></ul><button type="button" class="wpgb-toggle-hidden" aria-expanded="false">Voir 13 de plus</button></div>	</fieldset>
+	</div>	            <div class="wpgb-facet wpgb-loading wpgb-facet-25" data-facet="25" data-grid="wpgb-content">	<h4 class="wpgb-facet-title">Promotions</h4>
+		<fieldset>
+		<legend class="wpgb-facet-title wpgb-sr-only">Promotions</legend>
+		<div class="wpgb-checkbox-facet"><ul class="wpgb-hierarchical-list"><li><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_promo[]" value="remise-avec-la-carte-intermarche"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Remise avec la carte Intermarché</span></div></li><li><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_promo[]" value="remise-immediate"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Remise immédiate</span></div></li></ul></div>	</fieldset>
+	</div>                <div class="wpgb-facet wpgb-loading wpgb-facet-24" data-facet="24" data-grid="wpgb-content">	<h4 class="wpgb-facet-title">Marques</h4>
+		<fieldset>
+		<legend class="wpgb-facet-title wpgb-sr-only">Marques</legend>
+		<div class="wpgb-checkbox-facet"><ul class="wpgb-hierarchical-list"><li><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="bouton-dor"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Bouton d&#039;Or</span></div></li><li><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="brugge"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Brugge</span></div></li><li><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="by-haussmann"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">By Haussmann</span></div></li><li><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="campina"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Campina</span></div></li><li><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="cantina-la-torre"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Cantina La Torre</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="catsan"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Catsan</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="chabrior"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Chabrior</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="cornet"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Cornet</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="croqfruit"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Croq&#039;Fruit</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="escal"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Escal</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="feuille-dor"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Feuille d&#039;Or</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="fiorini"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Fiorini</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="fuze-tea"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Fuze Tea</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="grimbergen"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Grimbergen</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="herta"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Herta</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="igp-pays-doc"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">IGP Pays d&#039;Oc</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="ivoria"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Ivoria</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="jacquet"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Jacquet</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="jupiler"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Jupiler</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="kinder"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Kinder</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="knorr"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Knorr</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="la-molisana"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">La Molisana</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="la-motte-de-villers"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">La Motte de Villers</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="la-rosina"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">La Rosina</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="le-chat"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Le Chat</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="leerdammer"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Leerdammer</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="leffe"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Leffe</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="lotus"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Lotus</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="lutti"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Lutti</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="maes"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Maes</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="maizena"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Maizena</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="milka"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Milka</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="monique-ranou"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Monique Ranou</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="native"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Native</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="odyssee"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Odyssée</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="okay"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Okay</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="paquito"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Paquito</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="parmareggio"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Parmareggio</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="paturages"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Pâturages</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="peka"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Peka</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="planteur-des-tropiques"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Planteur des Tropiques</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="porto-cruz"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Porto Cruz</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="rana"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Rana</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="saint-eloi"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Saint Eloi</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="sammontana"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Sammontana</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="schweppes"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Schweppes</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="televie"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Télévie</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="tena"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Tena</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="vache-qui-rit"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Vache qui rit</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="vandemoortele"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Vandemoortele</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="vandermaesen"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Vandermaesen</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="victoria-kwak"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Victoria | Kwak</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="volae"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Volaé</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="wasa"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Wasa</span></div></li><li hidden><div class="wpgb-checkbox" role="button" aria-pressed="false" tabindex="0"><input type="hidden" name="products_brand[]" value="yaos"><span class="wpgb-checkbox-control"></span><span class="wpgb-checkbox-label">Yaos</span></div></li></ul><button type="button" class="wpgb-toggle-hidden" aria-expanded="false">Voir 50 de plus</button></div>	</fieldset>
+	</div>                <div class="pt-6 pt-lg-1"></div>
+                <div class="pdw-facets-buttons product-facets-buttons position-sticky bottom-0 bg-white py-1 d-lg-none">
+                    <button class="pdw-mobile-menu-toggler btn btn-primary d-flex gap-05 align-items-center justify-content-center w-100" data-target="product-facets">
+                        Montrer                        <div class="wpgb-facet wpgb-loading wpgb-facet-19" data-facet="19" data-grid="wpgb-content"><span class="wpgb-result-count">182 produits</span></div>                    </button>
+                </div>
+            </div>
+            <div class="pdw-mobile-menu-overlay pdw-mobile-menu-close d-lg-none" data-target="product-facets"></div>
+        </div>
+        <div class="col-12 col-lg-9 pt-2 pt-lg-5">
+            <button class="btn btn-primary d-lg-none d-flex align-items-center justify-content-center gap-05 w-100 mb-2 pdw-mobile-menu-toggler" data-target="product-facets">
+                Filtres<span class="pdw-icon-filter pdw-icon-20 pdw-icon-white"></span>
+            </button>
+            <div class="h5 mb-1"><div class="wpgb-facet wpgb-loading wpgb-facet-19" data-facet="19" data-grid="wpgb-content"><span class="wpgb-result-count">182 produits</span></div></div>
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-1">
+        <div class="wpgb-content" hidden></div>            <div class="col mb-05">
+	            <div class="card pdw-product-item pdw-product-normal  pt-1 h-100" data-reference="3700245483756">
+    <div class="card-top px-05">
+	                <span class="d-block ratio ratio-16x9">
+            <img width="164" height="300" src="https://www.intermarche.be/files/uploads/2026/10/3700245483756.webp" class="card-img-top img-fluid wp-post-image" alt="" decoding="async" />        </span>
+	        </div>
+    <div class="card-body pb-05">
+                <div class="card-text small">
+			<p><b>Aérial</b> <br />Lot de valise cabine + sac<br />3 coloris disponibles<br />Dans la limite des stock disponibles</p>
+        </div>
+    </div>
+    <div class="card-footer bg-transparent border-0 p-0">
+        <div class="d-flex align-items-end justify-content-between">
+			                <div class="pdw-promo-banner">
+					-50%                </div>
+						                <div class="pdw-price-wrapper ms-auto">
+											                                                    <div class="pdw-price-alt pdw-price-stroke">
+	                            79,99                            </div>
+							                                                <div class="pdw-price">
+                                39<sup>99</sup>
+                            </div>
+												                            <div class="pdw-price-unit">
+								La pièce                            </div>
+											                </div>
+			        </div>
+    </div>
+</div>            </div>
+                    <div class="col mb-05">
+	            <div class="card pdw-product-item pdw-product-card pdw-selection-intermarche pt-1 h-100" data-reference="41547151">
+    <div class="card-top px-05">
+	                <span class="d-block ratio ratio-16x9">
+            <img width="300" height="233" src="https://www.intermarche.be/files/uploads/2026/10/3250390002178-300x233.webp" class="card-img-top img-fluid wp-post-image" alt="" decoding="async" srcset="https://www.intermarche.be/files/uploads/2026/10/3250390002178-300x233.webp 300w, https://www.intermarche.be/files/uploads/2026/10/3250390002178.webp 386w" sizes="(max-width: 300px) 100vw, 300px" />        </span>
+	        </div>
+    <div class="card-body pb-05">
+                <div class="card-text small">
+			<p><b>Apta ou Domedia</b> <br />Papier cuisson ou aluminium, barquettes en aluminium, sac congélation, sachets à glaçons, film étirable ou Micro-ondes<br />Variétés au choix<br />Au prix habituel de € 0,88 à € 5,29 le pack</p>
+        </div>
+    </div>
+    <div class="card-footer bg-transparent border-0 p-0">
+        <div class="d-flex align-items-end justify-content-between">
+			                <div class="pdw-promo-banner">
+					2+2 GRATIS AU CHOIX                </div>
+						        </div>
+    </div>
+</div>            </div>
+                    <div class="col mb-05">
+	            <div class="card pdw-product-item pdw-product-normal  pt-1 h-100" data-reference="47416045">
+    <div class="card-top px-05">
+	                <span class="d-block ratio ratio-16x9">
+            <img width="300" height="297" src="https://www.intermarche.be/files/uploads/2026/10/3250390882763-300x297.webp" class="card-img-top img-fluid wp-post-image" alt="" decoding="async" loading="lazy" srcset="https://www.intermarche.be/files/uploads/2026/10/3250390882763-300x297.webp 300w, https://www.intermarche.be/files/uploads/2026/10/3250390882763-150x150.webp 150w, https://www.intermarche.be/files/uploads/2026/10/3250390882763.webp 303w" sizes="auto, (max-width: 300px) 100vw, 300px" />        </span>
+	        </div>
+    <div class="card-body pb-05">
+                <div class="card-text small">
+			<p><b>Baguette</b> <br />400g</p>
+        </div>
+    </div>
+    <div class="card-footer bg-transparent border-0 p-0">
+        <div class="d-flex align-items-end justify-content-between">
+			                <div class="pdw-promo-banner">
+					2 POUR 1,80€                </div>
+						                <div class="pdw-price-wrapper ms-auto">
+											                                                    <div class="pdw-price-alt pdw-price-stroke">
+	                            2,38                            </div>
+							                                                <div class="pdw-price">
+                                1<sup>80</sup>
+                            </div>
+												                            <div class="pdw-price-unit">
+								Les 2 pièces                            </div>
+											                </div>
+			        </div>
+    </div>
+</div>            </div>
+                    <div class="col mb-05">
+	            <div class="card pdw-product-item  pdw-selection-intermarche pt-1 h-100" data-reference="">
+    <div class="card-top px-05">
+	                <span class="d-block ratio ratio-16x9">
+            <img width="300" height="240" src="https://www.intermarche.be/files/uploads/2024/02/baies-de-goji-paquito.jpg.webp" class="card-img-top img-fluid wp-post-image" alt="" decoding="async" loading="lazy" />        </span>
+	        </div>
+    <div class="card-body pb-05">
+                <div class="card-text small">
+			<p><strong>Baies goji BIO Paquito (125g)</strong></p>
+        </div>
+    </div>
+    <div class="card-footer bg-transparent border-0 p-0">
+        <div class="d-flex align-items-end justify-content-between">
+						                <div class="pdw-price-wrapper ms-auto">
+											                        	                                                <div class="pdw-price">
+                                3<sup>49</sup>
+                            </div>
+																	                </div>
+			        </div>
+    </div>
+</div>            </div>
+                    <div class="col mb-05">
+	            <div class="card pdw-product-item  pdw-selection-intermarche pt-1 h-100" data-reference="">
+    <div class="card-top px-05">
+	                <span class="d-block ratio ratio-16x9">
+            <img width="300" height="240" src="https://www.intermarche.be/files/uploads/2025/03/barre-cereales-chabrior-300x240.png.webp" class="card-img-top img-fluid wp-post-image" alt="" decoding="async" loading="lazy" srcset="https://www.intermarche.be/files/uploads/2025/03/barre-cereales-chabrior-300x240.png.webp 300w,https://www.intermarche.be/files/uploads/2025/03/barre-cereales-chabrior.png.webp 400w" sizes="auto, (max-width: 300px) 100vw, 300px" />        </span>
+	        </div>
+    <div class="card-body pb-05">
+                <div class="card-text small">
+			<p><strong>Barres Céréales au chocolat Chabrior (125g)</strong></p>
+        </div>
+    </div>
+    <div class="card-footer bg-transparent border-0 p-0">
+        <div class="d-flex align-items-end justify-content-between">
+						                <div class="pdw-price-wrapper ms-auto">
+											                        	                                                <div class="pdw-price">
+                                1<sup>39</sup>
+                            </div>
+												                            <div class="pdw-price-unit">
+								125g                            </div>
+											                </div>
+			        </div>
+    </div>
+</div>            </div>
+                    <div class="col mb-05">
+	            <div class="card pdw-product-item  pdw-selection-intermarche pt-1 h-100" data-reference="">
+    <div class="card-top px-05">
+	                <span class="d-block ratio ratio-16x9">
+            <img width="300" height="240" src="https://www.intermarche.be/files/uploads/2025/03/biscotte-chabrior-300x240.png.webp" class="card-img-top img-fluid wp-post-image" alt="" decoding="async" loading="lazy" srcset="https://www.intermarche.be/files/uploads/2025/03/biscotte-chabrior-300x240.png.webp 300w,https://www.intermarche.be/files/uploads/2025/03/biscotte-chabrior.png.webp 400w" sizes="auto, (max-width: 300px) 100vw, 300px" />        </span>
+	        </div>
+    <div class="card-body pb-05">
+                <div class="card-text small">
+			<p><strong>Biscottes sans sucres Chabrior (300g)</strong></p>
+        </div>
+    </div>
+    <div class="card-footer bg-transparent border-0 p-0">
+        <div class="d-flex align-items-end justify-content-between">
+						                <div class="pdw-price-wrapper ms-auto">
+											                        	                                                <div class="pdw-price">
+                                1<sup>45</sup>
+                            </div>
+												                            <div class="pdw-price-unit">
+								300g                            </div>
+											                </div>
+			        </div>
+    </div>
+</div>            </div>
+                    <div class="col mb-05">
+	            <div class="card pdw-product-item   pt-1 h-100" data-reference="">
+    <div class="card-top px-05">
+	                <span class="d-block ratio ratio-16x9">
+            <img width="300" height="225" src="https://www.intermarche.be/files/uploads/2025/11/bonbon-televie-2026-300x225.png.webp" class="card-img-top img-fluid wp-post-image" alt="" decoding="async" loading="lazy" srcset="https://www.intermarche.be/files/uploads/2025/11/bonbon-televie-2026-300x225.png.webp 300w,https://www.intermarche.be/files/uploads/2025/11/bonbon-televie-2026.png.webp 400w" sizes="auto, (max-width: 300px) 100vw, 300px" />        </span>
+	        </div>
+    <div class="card-body pb-05">
+                <div class="card-text small">
+			<p><strong>Bonbons</strong><br />
+Gommes aux goûts variés, enrobées de sucre cristallisé aux arômes et colorants naturels – Sachet avec le logo du Télévie de 160 grammes</p>
+        </div>
+    </div>
+    <div class="card-footer bg-transparent border-0 p-0">
+        <div class="d-flex align-items-end justify-content-between">
+						                <div class="pdw-price-wrapper ms-auto">
+											                        	                                                <div class="pdw-price">
+                                3<sup>00</sup>
+                            </div>
+																	                </div>
+			        </div>
+    </div>
+</div>            </div>
+                    <div class="col mb-05">
+	            <div class="card pdw-product-item   pt-1 h-100" data-reference="">
+    <div class="card-top px-05">
+	                <span class="d-block ratio ratio-16x9">
+            <img width="300" height="225" src="https://www.intermarche.be/files/uploads/2025/11/bougie-televie-2026-300x225.png.webp" class="card-img-top img-fluid wp-post-image" alt="" decoding="async" loading="lazy" srcset="https://www.intermarche.be/files/uploads/2025/11/bougie-televie-2026-300x225.png.webp 300w,https://www.intermarche.be/files/uploads/2025/11/bougie-televie-2026.png.webp 400w" sizes="auto, (max-width: 300px) 100vw, 300px" />        </span>
+	        </div>
+    <div class="card-body pb-05">
+                <div class="card-text small">
+			<p><strong>Bougie</strong></p>
+<p style="font-weight: 400;">Bougie d’intérieur Télévie à la cire naturelle de soja – sans parfum. Diamètre : 8 cm – Hauteur : 9 cm.</p>
+        </div>
+    </div>
+    <div class="card-footer bg-transparent border-0 p-0">
+        <div class="d-flex align-items-end justify-content-between">
+						                <div class="pdw-price-wrapper ms-auto">
+											                        	                                                <div class="pdw-price">
+                                10<sup>00</sup>
+                            </div>
+																	                </div>
+			        </div>
+    </div>
+</div>            </div>
+                    <div class="col mb-05">
+	            <div class="card pdw-product-item   pt-1 h-100" data-reference="">
+    <div class="card-top px-05">
+	                <span class="d-block ratio ratio-16x9">
+            <img width="300" height="225" src="https://www.intermarche.be/files/uploads/2026/01/2026-S06_PNM_productoftheyear_boutondor-300x225.png.webp" class="card-img-top img-fluid wp-post-image" alt="" decoding="async" loading="lazy" srcset="https://www.intermarche.be/files/uploads/2026/01/2026-S06_PNM_productoftheyear_boutondor-300x225.png.webp 300w,https://www.intermarche.be/files/uploads/2026/01/2026-S06_PNM_productoftheyear_boutondor.png.webp 400w" sizes="auto, (max-width: 300px) 100vw, 300px" />        </span>
+	        </div>
+    <div class="card-body pb-05">
+                <div class="card-text small">
+			<p><strong>Bouton d’Or</strong></p>
+<p class="p1">Sauce hannibal<br />
+En squeeze &#8211; 300ml</p>
+        </div>
+    </div>
+    <div class="card-footer bg-transparent border-0 p-0">
+        <div class="d-flex align-items-end justify-content-between">
+						                <div class="pdw-price-wrapper ms-auto">
+											                        	                                                <div class="pdw-price">
+                                2<sup>35</sup>
+                            </div>
+																	                </div>
+			        </div>
+    </div>
+</div>            </div>
+                    <div class="col mb-05">
+	            <div class="card pdw-product-item   pt-1 h-100" data-reference="">
+    <div class="card-top px-05">
+	                <span class="d-block ratio ratio-16x9">
+            <img width="300" height="240" src="https://www.intermarche.be/files/uploads/2022/11/brie-francais-300x240.png.webp" class="card-img-top img-fluid wp-post-image" alt="" decoding="async" loading="lazy" srcset="https://www.intermarche.be/files/uploads/2022/11/brie-francais-300x240.png.webp 300w,https://www.intermarche.be/files/uploads/2022/11/brie-francais.png.webp 400w" sizes="auto, (max-width: 300px) 100vw, 300px" />        </span>
+	        </div>
+    <div class="card-body pb-05">
+                <div class="card-text small">
+			<p><strong>Brie français</strong><br />
+60% MG</p>
+<div id="ConnectiveDocSignExtentionInstalled" data-extension-version="1.0.4"></div>
+        </div>
+    </div>
+    <div class="card-footer bg-transparent border-0 p-0">
+        <div class="d-flex align-items-end justify-content-between">
+						                <div class="pdw-price-wrapper ms-auto">
+											                        	                                                <div class="pdw-price">
+                                1<sup>19</sup>
+                            </div>
+												                            <div class="pdw-price-unit">
+								Les 100 G                            </div>
+											                </div>
+			        </div>
+    </div>
+</div>            </div>
+                    <div class="col mb-05">
+	            <div class="card pdw-product-item pdw-product-normal  pt-1 h-100" data-reference="BROCOLI FILM 500G PIECE ESP C 1">
+    <div class="card-top px-05">
+	                <span class="d-block ratio ratio-16x9">
+            <img width="300" height="223" src="https://www.intermarche.be/files/uploads/2026/10/BROCOLI-FILM-500G-PIECE-ESP-C-1-300x223.webp" class="card-img-top img-fluid wp-post-image" alt="" decoding="async" loading="lazy" srcset="https://www.intermarche.be/files/uploads/2026/10/BROCOLI-FILM-500G-PIECE-ESP-C-1-300x223.webp 300w, https://www.intermarche.be/files/uploads/2026/10/BROCOLI-FILM-500G-PIECE-ESP-C-1.webp 403w" sizes="auto, (max-width: 300px) 100vw, 300px" />        </span>
+	        </div>
+    <div class="card-body pb-05">
+                <div class="card-text small">
+			<p><b>Brocoli</b> <br />Cat.: 1 &#8211; Orig.: Espagne<br />Emballé sous film<br />Par pièce de 500g</p>
+        </div>
+    </div>
+    <div class="card-footer bg-transparent border-0 p-0">
+        <div class="d-flex align-items-end justify-content-between">
+						                <div class="pdw-price-wrapper ms-auto">
+											                        	                                                <div class="pdw-price">
+                                1<sup>19</sup>
+                            </div>
+												                            <div class="pdw-price-unit">
+								La pièce                            </div>
+											                </div>
+			        </div>
+    </div>
+</div>            </div>
+                    <div class="col mb-05">
+	            <div class="card pdw-product-item pdw-product-normal  pt-1 h-100" data-reference="19195026">
+    <div class="card-top px-05">
+	                <span class="d-block ratio ratio-16x9">
+            <img width="300" height="178" src="https://www.intermarche.be/files/uploads/2026/10/5413721900170-300x178.webp" class="card-img-top img-fluid wp-post-image" alt="" decoding="async" loading="lazy" srcset="https://www.intermarche.be/files/uploads/2026/10/5413721900170-300x178.webp 300w, https://www.intermarche.be/files/uploads/2026/10/5413721900170.webp 506w" sizes="auto, (max-width: 300px) 100vw, 300px" />        </span>
+	        </div>
+    <div class="card-body pb-05">
+                <div class="card-text small">
+			<p><b>Brugge</b> <br />Fromage<br />Variétés au choix</p>
+        </div>
+    </div>
+    <div class="card-footer bg-transparent border-0 p-0">
+        <div class="d-flex align-items-end justify-content-between">
+			                <div class="pdw-promo-banner">
+					Jusqu'à -30%                </div>
+						                <div class="pdw-price-wrapper ms-auto">
+											                                                    <div class="pdw-price-alt pdw-price-stroke">
+	                            2,19                            </div>
+							                                                <div class="pdw-price">
+                                1<sup>69</sup>
+                            </div>
+												                            <div class="pdw-price-unit">
+								Les 100g                            </div>
+											                </div>
+			        </div>
+    </div>
+</div>            </div>
+            </div>
+    <div class="d-flex align-items-center justify-content-center mt-1">
+		<div class="wpgb-facet wpgb-loading wpgb-facet-10" data-facet="10" data-grid="wpgb-content"><nav class="wpgb-pagination-facet" aria-label="Navigation"><ul class="wpgb-pagination"><li class="wpgb-page"><a href="https://www.intermarche.be/produits/?_pagination=1" aria-current="true" aria-label="Page courante, Page 1" data-page="1">1</a></li><li class="wpgb-page"><a href="https://www.intermarche.be/produits/?_pagination=2" aria-label="Aller à la page 2" data-page="2">2</a></li><li class="wpgb-page"><a href="https://www.intermarche.be/produits/?_pagination=3" aria-label="Aller à la page 3" data-page="3">3</a></li><li class="wpgb-page"><span class="wpgb-dots-page">…</span></li><li class="wpgb-page"><a href="https://www.intermarche.be/produits/?_pagination=15" aria-label="Aller à la page 15" data-page="15">15</a></li><li class="wpgb-page"><a href="https://www.intermarche.be/produits/?_pagination=16" aria-label="Aller à la page 16" data-page="16">16</a></li><li class="wpgb-page wpgb-page-next"><a href="https://www.intermarche.be/produits/?_pagination=2" aria-label="Aller à la page 2" data-page="2">Suivant »</a></li></ul></nav></div>    </div>
+        </div>
+    </div>
+            <div  class="product-cta mt-4">
+            <p>Découvrez aussi les offres dans nos folders en ligne directement disponibles <a href="https://www.intermarche.be/folders/">ici</a>. Ne manquez ainsi aucune de nos promotions.</p>
+        </div>
+    	        <div  class="d-lg-none">
+                                    <div class="card card-item text-center h-100">
+			<a class="card-link stretched-link" href="https://www.intermarche.be/folders/decouvrez-notre-folder-anniversaire-du-13-10-26/">
+			<img width="600" height="400" src="https://www.intermarche.be/files/uploads/2026/10/2026-S37_FOLDER-FR.png.webp" class="card-img-top img-fluid wp-post-image" alt="" decoding="async" loading="lazy" srcset="https://www.intermarche.be/files/uploads/2026/10/2026-S37_FOLDER-FR.png.webp 600w,https://www.intermarche.be/files/uploads/2026/10/2026-S37_FOLDER-FR-300x200.png.webp 300w" sizes="auto, (max-width: 600px) 100vw, 600px" />		</a>
+		<div class="card-body">
+		<div class="card-title fw-bold">Découvrez notre folder Anniversaire du 13/10</div>
+		<p class="card-text small">
+							Valide du 13/10 au 18/10/2026					</p>
+	</div>
+	<div class="card-footer bg-transparent border-0 pt-0 pb-1">
+		<a class="btn btn-secondary btn-sm w-100" href="https://www.intermarche.be/folders/decouvrez-notre-folder-anniversaire-du-13-10-26/" target="_blank">Lire le folder</a>
+	</div>
+</div>                    </div>
+	</div>
+    </section><!-- #content -->
+<div class="mt-auto"></div>
+<footer class="footer bg-light mt-8 d-print-none">
+    <div class="container">
+        <div class="wpb-content-wrapper" id="wpb-content-root"><div class="vc_row wpb_row vc_row-fluid mb-2 ht-6 px-1"><div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-offset-2 vc_col-lg-8 vc_col-md-offset-2 vc_col-md-8"><div class="vc_column-inner  bg-primary rounded-5 p-1"><div class="wpb_wrapper"><div class="vc_custom_heading vc_do_custom_heading pt-1" ><h2 style="font-size: 1.5rem;color: #ffffff;text-align: center" >Notre newsletter</h2></div><div class="vc_custom_heading vc_do_custom_heading" ><p style="color: #ffffff;text-align: center" >Grâce à notre newsletter, ne manquez aucune de nos offres et promotions. Vous pouvez vous désabonner à tout moment.</p></div><div class="vc_row wpb_row vc_inner vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12 vc_col-md-offset-2 vc_col-md-8"><div class="vc_column-inner"><div class="wpb_wrapper">
+                <div class='gf_browser_chrome gform_wrapper gravity-theme gform-theme--no-framework pdw-newsletter_wrapper' data-form-theme='gravity-theme' data-form-index='0' id='gform_wrapper_3' ><div id='gf_3' class='gform_anchor' tabindex='-1'></div><form method='post' enctype='multipart/form-data'  id='gform_3' class='pdw-newsletter' action='/produits/#gf_3' data-formid='3' novalidate><div class='gf_invisible ginput_recaptchav3' data-sitekey='6LdNPQorAAAAAIeu5Z4C3su-7G-ndeVqkpuqv2p3' data-tabindex='0'><input id="input_758befbaf0db4f55f79edb12dec25966" class="gfield_recaptcha_response" type="hidden" name="input_758befbaf0db4f55f79edb12dec25966" value=""/></div>
+                        <div class='gform-body gform_body'><div id='gform_fields_3' class='gform_fields top_label form_sublabel_below description_below validation_below'><div id="field_3_2" class="gfield gfield--type-honeypot gform_validation_container field_sublabel_below gfield--has-description field_description_below field_validation_below gfield_visibility_visible"  ><label class='gfield_label gform-field-label' for='input_3_2'><span class='gform-field-label__text'>Name</span></label><div class='ginput_container'><input name='input_2' id='input_3_2' type='text' value='' autocomplete='new-password'/></div><div class='gfield_description' id='gfield_description_3_2'>Ce champ n’est utilisé qu’à des fins de validation et devrait rester inchangé.</div></div><div id="field_3_1" class="gfield gfield--type-email gfield--width-five-sixths field_sublabel_below gfield--no-description field_description_below hidden_label field_validation_below gfield_visibility_visible"  ><label class='gfield_label gform-field-label' for='input_3_1'><span class='gform-field-label__text'>E-mail</span></label><div class='ginput_container ginput_container_email'>
+                            <input name='input_1' id='input_3_1' type='email' value='' class='large'   placeholder='Votre adresse email'  aria-invalid="false"  />
+                        </div></div><div id="field_submit_3" class="gfield gfield--type-submit gfield--width-one-sixth field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible"  data-field-class="gform_editor_submit_container" data-field-position="inline" ><button type='submit' id='gform_submit_button_3' class='gform-button gform-button--white  button gform-button--width-full' onclick='gform.submission.handleButtonClick(this);' data-submission-type='submit' >OK</button></div></div></div>
+        <div class='gform-footer gform_footer top_label'>  
+            <input type='hidden' class='gform_hidden' name='gform_submission_method' data-js='gform_submission_method_3' value='postback' />
+            <input type='hidden' class='gform_hidden' name='gform_theme' data-js='gform_theme_3' id='gform_theme_3' value='gravity-theme' />
+            <input type='hidden' class='gform_hidden' name='gform_style_settings' data-js='gform_style_settings_3' id='gform_style_settings_3' value='[]' />
+            <input type='hidden' class='gform_hidden' name='is_submit_3' value='1' />
+            <input type='hidden' class='gform_hidden' name='gform_submit' value='3' />
+            
+            <input type='hidden' class='gform_hidden' name='gform_currency' data-currency='EUR' value='zAJZqTBgYRsOp/KcDhgQlfUxP5k/QcPjRjdihyVDL18joTbpx1i1f2Xwm1JaUoaLDu0toKPsTOi2k1knlhvA3q4xERljdu2X1Jtoqsq9YWo3mkg=' />
+            <input type='hidden' class='gform_hidden' name='gform_unique_id' value='' />
+            <input type='hidden' class='gform_hidden' name='state_3' value='WyJ7XCJnZm9ybV9zdWJtaXNzaW9uX21ldGhvZFwiOltcIjJhMDc2NThjOGIwYTkwNjEyMzgxYmViMDBmNzk3NjkzXCIsXCI3Y2FhZGMzNWJkZmU3ZGUyN2E4YjA2ODg3NTc1ZmMzOFwiXSxcImdmb3JtX3RoZW1lXCI6XCI5NjNmNjc3MTEyNTVjYzNiYzYxMTQyM2U1YzQzODExMVwiLFwiZ2Zvcm1fc3R5bGVfc2V0dGluZ3NcIjpcImRkZmI4ZTYzN2Q1OTI3OWMyODUzNjRlNjY3MTI0Yjg5XCIsXCJmb3JtX2lkXCI6XCIxMGNhYmJlZWUyMzRkMzUzMmJlNjg2YTE5YWQ1YWMyZVwiLFwidXJsXCI6XCI0ZGIyZmFiNzVkM2NlZGUwNTEwNDk2OGEwY2Y1MjQ1M1wiLFwic3RhdGVfdGltZXN0YW1wXCI6XCI5ZGYxYmM0MWFlNGI1MDJmYTU4M2JmNDU2ZjViOWJjOVwifSIsIjk2YTc4ODA5MGVhYmMzZTE5ZjJkNDY5ZTE4NTZkZWJiIiwxNzkxNzg3NTYwXQ==' />
+            <input type='hidden' autocomplete='off' class='gform_hidden' name='gform_target_page_number_3' id='gform_target_page_number_3' value='0' />
+            <input type='hidden' autocomplete='off' class='gform_hidden' name='gform_source_page_number_3' id='gform_source_page_number_3' value='1' />
+            <input type='hidden' name='gform_field_values' value='' />
+            
+        </div>
+                        </form>
+                        </div></div></div></div></div>
+	<div class="wpb_text_column wpb_content_element text-white m-0" >
+		<div class="wpb_wrapper">
+			<p style="text-align: center;"><small><em>Nos newsletters seront envoyées via notre partenaire FREEDELITY (inscription <a class="text-white" href="https://www.intermarche.be/inscription-newsletter/">page suivante</a>). Pour plus de détails concernant la protection de vos données, veuillez consulter notre <a class="text-white" href="https://www.intermarche.be/politique-de-confidentialite/">Politique de confidentialité</a>.</em></small></p>
+
+		</div>
+	</div>
+</div></div></div></div><div class="vc_row wpb_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-3"><div class="vc_column-inner"><div class="wpb_wrapper"><div  class="vc_wp_custommenu wpb_content_element"><div class="widget widget_nav_menu"><h2 class="widgettitle">Nos actions et folders</h2><div class="menu-nos-actions-et-folders-container"><ul id="menu-nos-actions-et-folders" class="menu"><li id="menu-item-90" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-90"><a href="https://www.intermarche.be/nos-actions/">Nos actions</a></li>
+<li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-89"><a href="https://www.intermarche.be/la-carte-intermarche/">La carte Intermarché</a></li>
+<li id="menu-item-175910" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175910"><a href="https://www.intermarche.be/qui-sommes-nous/nos-marques-intermarche/">Nos marques InterMoinsChères</a></li>
+<li id="menu-item-240430" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-240430"><a href="https://www.intermarche.be/nos-actions/anniversaire/">35 jours de surprises !</a></li>
+</ul></div></div></div></div></div></div><div class="wpb_column vc_column_container vc_col-sm-3"><div class="vc_column-inner"><div class="wpb_wrapper"><div  class="vc_wp_custommenu wpb_content_element"><div class="widget widget_nav_menu"><h2 class="widgettitle">Qui sommes-nous ?</h2><div class="menu-qui-sommes-nous-container"><ul id="menu-qui-sommes-nous" class="menu"><li id="menu-item-98" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-98"><a href="https://www.intermarche.be/qui-sommes-nous/notre-histoire/">Notre histoire</a></li>
+<li id="menu-item-25370" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-25370"><a target="_blank" href="https://www.devenir-mousquetaires.be/">Ouvrir son magasin</a></li>
+<li id="menu-item-31190" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-31190"><a href="https://www.intermarche.be/qui-sommes-nous/nos-engagements/">Nos engagements</a></li>
+<li id="menu-item-5245" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5245"><a href="/faq/">Contact</a></li>
+<li id="menu-item-96" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-96"><a href="https://www.intermarche.be/lotto-intermarche/">Lotto-Intermarché</a></li>
+</ul></div></div></div></div></div></div><div class="wpb_column vc_column_container vc_col-sm-3"><div class="vc_column-inner"><div class="wpb_wrapper"><div  class="vc_wp_custommenu wpb_content_element"><div class="widget widget_nav_menu"><h2 class="widgettitle">Mentions légales</h2><div class="menu-mentions-legales-container"><ul id="menu-mentions-legales" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-104"><a href="https://www.intermarche.be/nos-reglements/">Nos règlements</a></li>
+<li id="menu-item-4772" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4772"><a href="/faq/">FAQ</a></li>
+<li id="menu-item-25475" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-25475"><a href="https://www.intermarche.be/mentions-legales/">Mentions légales</a></li>
+<li id="menu-item-30939" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-30939"><a rel="privacy-policy" href="https://www.intermarche.be/politique-de-confidentialite/">Politique de confidentialité</a></li>
+<li id="menu-item-31148" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-31148"><a href="https://www.intermarche.be/cookies/">Cookies</a></li>
+<li id="menu-item-197911" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-197911"><a href="https://www.intermarche.be/rappels-securite/">Rappels Sécurité</a></li>
+</ul></div></div></div></div></div></div><div class="wpb_column vc_column_container vc_col-sm-3"><div class="vc_column-inner"><div class="wpb_wrapper"><div  class="vc_wp_custommenu wpb_content_element"><div class="widget widget_nav_menu"><h2 class="widgettitle">Nous suivre</h2><div class="menu-nous-suivre-container"><ul id="menu-nous-suivre" class="menu"><li id="menu-item-105" class="d-inline-block menu-item menu-item-type-custom menu-item-object-custom menu-item-105"><a target="_blank" href="https://www.instagram.com/intermarchebelgium/"><span class="pdw-icon-instagram pdw-icon-40"></span></a></li>
+<li id="menu-item-106" class="d-inline-block menu-item menu-item-type-custom menu-item-object-custom menu-item-106"><a target="_blank" href="https://www.facebook.com/intermarchebelgique"><span class="pdw-icon-facebook pdw-icon-40"></span></a></li>
+</ul></div></div></div><div class="vc_btn3-container  btn-theme-primary mb-05 vc_btn3-left vc_custom_1767601861164 vc_do_btn" ><a class="vc_general vc_btn3 vc_btn3-size-xs vc_btn3-shape-rounded vc_btn3-style-modern vc_btn3-icon-left" href="https://www.intermarche.be/magasins/" title="Voir toutes les promotions"><i class="vc_btn3-icon fa fa-solid fa-location-dot"></i> Trouver un magasin</a></div><div class="vc_btn3-container  btn-theme-primary btn-theme-secondary vc_btn3-left vc_do_btn" ><a class="vc_general vc_btn3 vc_btn3-size-xs vc_btn3-shape-rounded vc_btn3-style-modern vc_btn3-icon-left" href="https://facturation.intermarche.be/fr/" title="Demander une facture" target="_blank"><i class="vc_btn3-icon fa fa-solid fa-file-invoice"></i> Demander une facture</a></div></div></div></div></div>
+</div>        <div class="copyright pb-2">
+            &copy; 2026 - Intermarché. Tous droits réservés. <a href="https://www.produweb.be" target="_blank" rel="noopener" title="Agence Web" id="produweb-link" style="text-decoration: none;">Site réalisé par ProduWeb</a>        </div>
+    </div>
+</footer><script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/files/uploads/*","/files/*","/files/plugins/*","/files/themes/produweb-theme/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<div class="wpgb-svg-icons" hidden>
+	<svg viewBox="0 0 120 24" width="0" height="0">
+	<defs>
+        <polygon id="wpgb-star-svg" points="12 2.5 15.1 8.8 22 9.8 17 14.6 18.2 21.5 12 18.3 5.8 21.5 7 14.6 2 9.8 8.9 8.8"></polygon>
+    </defs>
+    <symbol id="wpgb-rating-stars-svg">
+        <use xlink:href="#wpgb-star-svg"></use>
+        <use xlink:href="#wpgb-star-svg" x="24"></use>
+        <use xlink:href="#wpgb-star-svg" x="48"></use>
+        <use xlink:href="#wpgb-star-svg" x="72"></use>
+        <use xlink:href="#wpgb-star-svg" x="96"></use>
+    </symbol>
+</svg>
+</div>
+<script type="text/html" id="wpb-modifications"> window.wpbCustomElement = 1; </script><script id="rocket-browser-checker-js-after">
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+//# sourceURL=rocket-browser-checker-js-after
+</script>
+<script id="rocket-preload-links-js-extra">
+var RocketPreloadLinksConfig = {"excludeUris":"/magasins/|/magasins/|/nl/winkels/|/nl/winkels/|/wp-admin/|/nos-actions/concours-de-paques/|/activation-carte/|/nl/activering-intermarche-kaart/|/(?:.+/)?feed(?:/(?:.+/?)?)?$|/(?:.+/)?embed/|/(index.php/)?(.*)wp-json(/.*|$)|/refer/|/go/|/recommend/|/recommends/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https://www.intermarche.be","onHoverDelay":"100","rateThrottle":"3"};
+//# sourceURL=rocket-preload-links-js-extra
+</script>
+<script id="rocket-preload-links-js-after">
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+
+//# sourceURL=rocket-preload-links-js-after
+</script>
+<script data-minify="1" id="produweb-script-js" src="https://www.intermarche.be/files/cache/min/1/files/themes/produweb-theme/assets/js/script.js?ver=1791215349"></script>
+<script id="mdp-stellar-js-extra">
+var mdpStellar = {"url":"https://www.intermarche.be/wp-admin/admin-ajax.php","nonce":{"getRating":"ee6fd84446","vote":"1bd6aebbf2"},"reset_timestamp":"1657808964","length":"5","results_text":"","limitText":"You have already voted. Sorry.","session":"off","is_multivoting":""};
+//# sourceURL=mdp-stellar-js-extra
+</script>
+<script id="mdp-stellar-js" src="https://www.intermarche.be/files/plugins/stellar/js/stellar.min.js?ver=2.4.0" data-rocket-defer defer></script>
+<script id="gforms_recaptcha_recaptcha-js-extra">
+var gforms_recaptcha_recaptcha_strings = {"nonce":"2add32bbc9","disconnect":"Disconnecting","change_connection_type":"Resetting","spinner":"https://www.intermarche.be/files/plugins/gravityforms/images/spinner.svg","connection_type":"classic","disable_badge":"1","change_connection_type_title":"Change Connection Type","change_connection_type_message":"Changing the connection type will delete your current settings.  Do you want to proceed?","disconnect_title":"Disconnect","disconnect_message":"Disconnecting from reCAPTCHA will delete your current settings.  Do you want to proceed?","site_key":"6LdNPQorAAAAAIeu5Z4C3su-7G-ndeVqkpuqv2p3"};
+//# sourceURL=gforms_recaptcha_recaptcha-js-extra
+</script>
+<script data-wp-strategy="defer" defer id="gforms_recaptcha_recaptcha-js" src="https://www.google.com/recaptcha/api.js?render=6LdNPQorAAAAAIeu5Z4C3su-7G-ndeVqkpuqv2p3&#038;ver=2.2.2"></script>
+<script data-wp-strategy="defer" defer id="gforms_recaptcha_frontend-js" src="https://www.intermarche.be/files/plugins/gravityformsrecaptcha/js/frontend.min.js?ver=2.2.2"></script>
+<script id="jquery-core-js" src="https://www.intermarche.be/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" data-rocket-defer defer></script>
+<script id="wpb_composer_front_js-js" src="https://www.intermarche.be/files/plugins/js_composer/assets/js/dist/js_composer_front.min.js?ver=9.0.1" data-rocket-defer defer></script>
+<script id="wp-dom-ready-js" src="https://www.intermarche.be/wp-includes/js/dist/dom-ready.min.js?ver=3fe927cab37bf38d6a23" data-rocket-defer defer></script>
+<script id="wp-hooks-js" src="https://www.intermarche.be/wp-includes/js/dist/hooks.min.js?ver=f0f188028580e8dc1255"></script>
+<script id="wp-i18n-js" src="https://www.intermarche.be/wp-includes/js/dist/i18n.min.js?ver=1dfe7db3940c23ea9216"></script>
+<script id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+//# sourceURL=wp-i18n-js-after
+</script>
+<script id="wp-a11y-js-translations">
+( function( domain, translations ) {
+	var localeData = translations.locale_data[ domain ] || translations.locale_data.messages;
+	localeData[""].domain = domain;
+	wp.i18n.setLocaleData( localeData, domain );
+} )( "default", {"translation-revision-date":"2026-10-08 09:40:47+0000","generator":"GlotPress\/4.1.0","domain":"messages","locale_data":{"messages":{"":{"domain":"messages","plural-forms":"nplurals=2; plural=n > 1;","lang":"fr"},"Notifications":["Notifications"]}},"comment":{"reference":"wp-includes\/js\/dist\/a11y.js"}} );
+//# sourceURL=wp-a11y-js-translations
+</script>
+<script id="wp-a11y-js" src="https://www.intermarche.be/wp-includes/js/dist/a11y.min.js?ver=31c6cec5a4ff7aff483d" data-rocket-defer defer></script>
+<script id="jquery-migrate-js" src="https://www.intermarche.be/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" data-rocket-defer defer></script>
+<script id="gform_json-js" defer='defer' src="https://www.intermarche.be/files/plugins/gravityforms/js/jquery.json.min.js?ver=3.1.2"></script>
+<script id="gform_gravityforms-js-extra">
+var gform_i18n = {"datepicker":{"wdOffset":1,"helpTextShort":"Appuyez sur F1 pour obtenir de l\u2019aide","helpText":"Utilisez les fl\u00e8ches pour changer de jour, Page pr\u00e9c. et Page suiv. pour changer de mois, Alt+Page pr\u00e9c. et Alt+Page suiv. pour changer d\u2019ann\u00e9e, ou \u00c9chap pour annuler.","openOnFocusHelpText":"Appuyez sur la fl\u00e8che vers le bas pour parcourir le calendrier, ou sur \u00c9chap pour le fermer.","tooltipTxt":"Appuyez sur \u00c9chap pour annuler","disabledTxt":"D\u00e9sactiv\u00e9","markedTxt":"S\u00e9lectionn\u00e9","prevTxt":"Pr\u00e9c\u00e9dent","nextTxt":"Suivant","monthTxt":"Mois","yearTxt":"Ann\u00e9e","months":["Janvier","F\u00e9vrier","Mars","Avril","Mai","Juin","Juillet","Ao\u00fbt","Septembre","Octobre","Novembre","D\u00e9cembre"],"days":[{"s":"Dim","l":"Dimanche"},{"s":"Lun","l":"Lundi"},{"s":"Mar","l":"Mardi"},{"s":"Mer","l":"Mercredi"},{"s":"Jeu","l":"Jeudi"},{"s":"Ven","l":"Vendredi"},{"s":"Sam","l":"Samedi"}]}};
+var gf_legacy_multi = [];
+var gform_gravityforms = {"strings":{"invalid_file_extension":"Ce type de fichier n\u2019est pas autoris\u00e9. Seuls les formats suivants sont autoris\u00e9s\u00a0:","file_uploaded":"Fichier t\u00e9l\u00e9vers\u00e9","delete_file":"Supprimer ce fichier","in_progress":"en cours","file_exceeds_limit":"Le fichier d\u00e9passe la taille autoris\u00e9e.","illegal_extension":"Ce type de fichier n\u2019est pas autoris\u00e9.","max_reached":"Nombre de fichiers maximal atteint","unknown_error":"Une erreur s\u2019est produite lors de la sauvegarde du fichier sur le serveur","currently_uploading":"Veuillez attendre la fin du t\u00e9l\u00e9versement","cancel":"Annuler","cancel_upload":"Annuler ce t\u00e9l\u00e9versement","cancelled":"Annul\u00e9","error":"Erreur","message":"Message"},"vars":{"images_url":"https://www.intermarche.be/files/plugins/gravityforms/images"}};
+var gf_global = {"gf_currency_config":{"name":"Euro","symbol_left":"","symbol_right":"&#8364;","symbol_padding":" ","thousand_separator":".","decimal_separator":",","decimals":2,"code":"EUR"},"base_url":"https://www.intermarche.be/files/plugins/gravityforms","number_formats":[],"version_hash":"cd890bbdc025902ba3ac2cf64deab67a","countries":{"AF":"Afghanistan","AX":"\u00celes \u00c5land","AL":"Albanie","DZ":"Alg\u00e9rie","AS":"Samoa am\u00e9ricaines","AD":"Andorre","AO":"Angola","AI":"Anguilla","AQ":"Antarctique","AG":"Antigua-et-Barbuda","AR":"Argentine","AM":"Arm\u00e9nie","AW":"Aruba","AU":"Australie","AT":"Autriche","AZ":"Azerba\u00efdjan","BS":"Bahamas","BH":"Bahre\u00efn","BD":"Bangladesh","BB":"La Barbade","BY":"Belarus","BE":"Belgique","BZ":"Belize","BJ":"B\u00e9nin","BM":"Bermudes","BT":"Bhoutan","BO":"Bolivie","BQ":"Bonaire, Saint-Eustache et Saba","BA":"Bosnie-Herz\u00e9govine","BW":"Botswana","BV":"\u00cele Bouvet","BR":"Br\u00e9sil","IO":"Territoire britannique de l\u2019oc\u00e9an Indien","BN":"Brunei Darussalam","BG":"Bulgarie","BF":"Burkina Faso","BI":"Burundi","CV":"Cap-Vert","KH":"Cambodge","CM":"Cameroun","CA":"Canada","KY":"\u00celes Cayman","CF":"R\u00e9publique centrafricaine","TD":"Tchad","CL":"Chili","CN":"Chine","CX":"\u00cele Christmas","CC":"\u00celes Cocos","CO":"Colombie","KM":"Comores","CD":"R\u00e9publique d\u00e9mocratique du Congo","CG":"Congo","CK":"\u00celes Cook","CR":"Costa Rica","CI":"C\u00f4te d\u2019Ivoire","HR":"Croatie","CU":"Cuba","CW":"Cura\u00e7ao","CY":"Chypre","CZ":"R\u00e9publique Tch\u00e8que","DK":"Danemark","DJ":"Djibouti","DM":"Dominique","DO":"R\u00e9publique Dominicaine","EC":"\u00c9quateur","EG":"\u00c9gypte","SV":"Salvador","GQ":"Guin\u00e9e \u00e9quatoriale","ER":"\u00c9rythr\u00e9e","EE":"Estonie","SZ":"Eswatini","ET":"\u00c9thiopie","FK":"\u00celes Falkland","FO":"\u00celes F\u00e9ro\u00e9","FJ":"Fidji","FI":"Finlande","FR":"France","GF":"Guyane","PF":"Polyn\u00e9sie fran\u00e7aise","TF":"Terres Australes Fran\u00e7aises","GA":"Gabon","GM":"Gambie","GE":"G\u00e9orgie","DE":"Allemagne","GH":"Ghana","GI":"Gibraltar","GR":"Gr\u00e8ce","GL":"Groenland","GD":"Grenade","GP":"Guadeloupe","GU":"Guam","GT":"Guatemala","GG":"Guernesey","GN":"Guin\u00e9e","GW":"Guin\u00e9e-Bissau","GY":"Guyane","HT":"Ha\u00efti","HM":"\u00celes Heard et McDonald","VA":"Saint-Si\u00e8ge","HN":"Honduras","HK":"Hong Kong","HU":"Hongrie","IS":"Islande","IN":"Inde","ID":"Indon\u00e9sie","IR":"Iran","IQ":"Irak","IE":"Irlande","IM":"\u00cele de Man","IL":"Isra\u00ebl","IT":"Italie","JM":"Jama\u00efque","JP":"Japon","JE":"Jersey","JO":"Jordanie","KZ":"Kazakhstan","KE":"Kenya","KI":"Kiribati","KP":"Cor\u00e9e (R\u00e9publique populaire d\u00e9mocratique de)","KR":"Cor\u00e9e (R\u00e9publique de)","KW":"Kowe\u00eft","KG":"Kirghizistan","LA":"R\u00e9publique d\u00e9mocratique populaire du Laos","LV":"Lettonie","LB":"Liban","LS":"Lesotho","LR":"Liberia","LY":"Libye","LI":"Liechtenstein","LT":"Lituanie","LU":"Luxembourg","MO":"Macao","MG":"Madagascar","MW":"Malawi","MY":"Malaisie","MV":"Maldives","ML":"Mali","MT":"Malte","MH":"\u00celes Marshall","MQ":"Martinique","MR":"Mauritanie","MU":"\u00cele Maurice","YT":"Mayotte","MX":"Mexique","FM":"Micron\u00e9sie","MD":"Moldavie","MC":"Monaco","MN":"Mongolie","ME":"Mont\u00e9n\u00e9gro","MS":"Montserrat","MA":"Maroc","MZ":"Mozambique","MM":"Myanmar","NA":"Namibie","NR":"Nauru","NP":"N\u00e9pal","NL":"Pays-Bas","NC":"Nouvelle-Cal\u00e9donie","NZ":"Nouvelle-Z\u00e9lande","NI":"Nicaragua","NE":"Niger","NG":"Nig\u00e9ria","NU":"Niu\u00e9","NF":"\u00cele Norfolk","MK":"Mac\u00e9doine du Nord","MP":"\u00celes Mariannes du Nord","NO":"Norv\u00e8ge","OM":"Oman","PK":"Pakistan","PW":"Palau","PS":"\u00c9tat palestinien","PA":"Panama","PG":"Papouasie-Nouvelle-Guin\u00e9e","PY":"Paraguay","PE":"P\u00e9rou","PH":"Philippines","PN":"\u00celes Pitcairn","PL":"Pologne","PT":"Portugal","PR":"Porto Rico","QA":"Qatar","RE":"La R\u00e9union","RO":"Roumanie","RU":"F\u00e9d\u00e9ration Russe","RW":"Rwanda","BL":"Saint Barth\u00e9lemy","SH":"Sainte-H\u00e9l\u00e8ne, Ascension et Tristan da Cunha","KN":"Saint-Christophe-et-Nevis","LC":"Sainte-Lucie","MF":"Saint Martin","PM":"Saint Pierre et Miquelon","VC":"Saint-Vincent-et-les Grenadines","WS":"Samoa","SM":"Saint-Marin","ST":"Sao Tom\u00e9 et Principe","SA":"Arabie Saoudite","SN":"S\u00e9n\u00e9gal","RS":"Serbie","SC":"Seychelles","SL":"Sierra Leone","SG":"Singapour","SX":"Sint Maarten","SK":"Slovaquie","SI":"Slov\u00e9nie","SB":"\u00celes Salomon","SO":"Somalie","ZA":"Afrique du Sud","GS":"G\u00e9orgie du Sud et \u00celes Sandwich du Sud","SS":"Soudan du Sud","ES":"Espagne","LK":"Sri Lanka","SD":"Soudan","SR":"Suriname","SJ":"\u00celes de Svalbard et Jan Mayen","SE":"Su\u00e8de","CH":"Suisse","SY":"R\u00e9publique arabe syrienne","TW":"Ta\u00efwan","TJ":"Tadjikistan","TZ":"Tanzanie (R\u00e9publique-Unie de)","TH":"Tha\u00eflande","TL":"Timor oriental","TG":"Togo","TK":"Tokelau","TO":"Tonga","TT":"Trinit\u00e9 et Tobago","TN":"Tunisie","TR":"Turquie","TM":"Turkm\u00e9nistan","TC":"\u00celes Turques et Ca\u00efques","TV":"Tuvalu","UG":"Ouganda","UA":"Ukraine","AE":"\u00c9mirats arabes unis","GB":"Royaume-Uni","US":"\u00c9tats-Unis","UY":"Uruguay","UM":"\u00celes mineures am\u00e9ricaines","UZ":"Ouzb\u00e9kistan","VU":"Vanuatu","VE":"Venezuela","VN":"Vietnam","VG":"\u00celes Vierges britanniques","VI":"\u00celes Vierges am\u00e9ricaines","WF":"Wallis et Futuna","EH":"Sahara occidental","YE":"Y\u00e9men","ZM":"Zambie","ZW":"Zimbabwe"},"strings":{"newRowAdded":"Nouvelle ligne ajout\u00e9e.","rowRemoved":"Rang\u00e9e supprim\u00e9e","formSaved":"Le formulaire a \u00e9t\u00e9 enregistr\u00e9. Le contenu contient le lien pour retourner et terminer le formulaire."}};
+//# sourceURL=gform_gravityforms-js-extra
+</script>
+<script id="gform_gravityforms-js" defer='defer' src="https://www.intermarche.be/files/plugins/gravityforms/js/gravityforms.min.js?ver=3.1.2"></script>
+<script id="gform_placeholder-js" defer='defer' src="https://www.intermarche.be/files/plugins/gravityforms/js/placeholders.jquery.min.js?ver=3.1.2"></script>
+<script id="gform_gravityforms_utils-js" defer='defer' src="https://www.intermarche.be/files/plugins/gravityforms/assets/js/dist/utils.min.js?ver=69a9db57304a9f86c3d1a0bea5fd2cf9"></script>
+<script id="gform_gravityforms_theme_vendors-js" defer='defer' src="https://www.intermarche.be/files/plugins/gravityforms/assets/js/dist/vendor-theme.min.js?ver=0c901cb641ce64b99c20ea1a4d208cc9"></script>
+<script id="gform_gravityforms_theme-js-extra">
+var gform_theme_config = {"common":{"form":{"honeypot":{"version_hash":"cd890bbdc025902ba3ac2cf64deab67a"},"ajax":{"ajaxurl":"https://www.intermarche.be/wp-admin/admin-ajax.php","ajax_submission_nonce":"4f02c17573","i18n":{"step_announcement":"\u00c9tape %1$s de %2$s, %3$s","unknown_error":"Une erreur inconnue s\u2018est produite lors du traitement de votre demande. Veuillez r\u00e9essayer.","error_403":"La demande a \u00e9t\u00e9 bloqu\u00e9e (erreur 403) pour des raisons de s\u00e9curit\u00e9 inconnues. Retirez tout texte de type code (scripts ou requ\u00eates DB) et r\u00e9essayez."}}}},"hmr_dev":"","public_path":"https://www.intermarche.be/files/plugins/gravityforms/assets/js/dist/","config_nonce":"28d3963f55"};
+//# sourceURL=gform_gravityforms_theme-js-extra
+</script>
+<script id="gform_gravityforms_theme-js" defer='defer' src="https://www.intermarche.be/files/plugins/gravityforms/assets/js/dist/scripts-theme.min.js?ver=e27d9712159624c99129c8c208f022ad"></script>
+<script id="wpgb-js-extra">
+var wpgb_settings = {"lang":"fr","ajaxUrl":"https://www.intermarche.be/?wpgb-ajax=action&lang=fr","restUrl":"https://www.intermarche.be/wp-json/wpgb/v2/filter/?action=action&lang=fr","restNonce":"","endpoint":"","history":"1","mainQuery":{"post_type":"product","error":"","m":"","p":0,"post_parent":"","subpost":"","subpost_id":"","attachment":"","attachment_id":0,"name":"","pagename":"","page_id":0,"second":"","minute":"","hour":"","day":0,"monthnum":0,"year":0,"w":0,"category_name":"","tag":"","cat":"","tag_id":"","author":"","author_name":"","feed":"","tb":"","paged":0,"meta_key":"","meta_value":"","preview":"","s":"","sentence":"","title":"","fields":"","menu_order":"","embed":"","category__in":[],"category__not_in":[],"category__and":[],"post__in":[],"post__not_in":[],"post_name__in":[],"tag__in":[],"tag__not_in":[],"tag__and":[],"tag_slug__in":[],"tag_slug__and":[],"post_parent__in":[],"post_parent__not_in":[],"author__in":[],"author__not_in":[],"search_columns":[],"orderby":"name","order":"ASC"},"permalink":"https://www.intermarche.be/produits/","resultMsg":{"plural":"%d r\u00e9sultats trouv\u00e9s","singular":"1 r\u00e9sultat trouv\u00e9","none":"aucun r\u00e9sultat trouv\u00e9"},"hasGrids":"","hasFacets":"1","hasLightbox":"","shadowGrids":["wpgb-content"],"lightbox":{"plugin":"wp_grid_builder","counterMsg":"[index] / [total]","errorMsg":"D\u00e9sol\u00e9, une erreur s\u2019est produite lors du chargement du contenu...","prevLabel":"Diapositive pr\u00e9c\u00e9dente","nextLabel":"Diapositive suivante","closeLabel":"Fermer la visionneuse"},"combobox":{"search":"Veuillez saisir 1 ou plusieurs caract\u00e8res.","loading":"En cours de chargement...","cleared":"options effac\u00e9es.","expanded":"Utilisez les boutons Haut et Bas pour choisir les options, appuyez sur Entr\u00e9e pour s\u00e9lectionner l\u2019option actuellement cibl\u00e9e, appuyez sur \u00c9chap pour r\u00e9duire la liste.","noResults":"Aucun r\u00e9sultat trouv\u00e9.","collapsed":"Appuyez sur Entr\u00e9e ou sur Espace pour d\u00e9velopper la liste.","toggleLabel":"Basculer la liste","clearLabel":"Effacer","selected":"option %s s\u00e9lectionn\u00e9e.","deselected":"option %s d\u00e9s\u00e9lectionn\u00e9e."},"autocomplete":{"open":"Utilisez les boutons Haut et Bas pour choisir les suggestions et appuyez sur Entr\u00e9e pour s\u00e9lectionner la suggestion.","input":"Tapez pour rechercher ou appuyez sur Echap pour effacer la saisie.","clear":"Champ effac\u00e9.","noResults":"Aucune suggestion trouv\u00e9e.","loading":"Chargement des suggestions...","clearLabel":"Effacer","select":"suggestion %s a \u00e9t\u00e9 s\u00e9lectionn\u00e9e."},"range":{"minLabel":"Valeur minimale","maxLabel":"Valeur maximale"},"vendors":[{"type":"js","handle":"wpgb-date","source":"https://www.intermarche.be/files/plugins/wp-grid-builder/public/js/vendors/date.js","version":1790677566},{"type":"css","handle":"wpgb-date-css","source":"https://www.intermarche.be/files/plugins/wp-grid-builder/public/css/vendors/date.css","version":1790677566},{"type":"js","handle":"wpgb-range","source":"https://www.intermarche.be/files/plugins/wp-grid-builder/public/js/vendors/range.js","version":1790677566},{"type":"js","handle":"wpgb-select","source":"https://www.intermarche.be/files/plugins/wp-grid-builder/public/js/vendors/select.js","version":1790677566},{"type":"js","handle":"wpgb-autocomplete","source":"https://www.intermarche.be/files/plugins/wp-grid-builder/public/js/vendors/autocomplete.js","version":1790677566}]};
+//# sourceURL=wpgb-js-extra
+</script>
+<script data-minify="1" src="https://www.intermarche.be/files/cache/min/1/files/plugins/wp-grid-builder/public/js/polyfills.js?ver=1791215356" data-rocket-defer defer></script>
+<script data-minify="1" id="wpgb-facets-js" src="https://www.intermarche.be/files/cache/min/1/files/plugins/wp-grid-builder/public/js/facets.js?ver=1791215356" data-rocket-defer defer></script>
+<script></script><script>window.addEventListener('DOMContentLoaded', function() {
+gform.initializeOnLoaded( function() { jQuery(document).on('gform_post_render', function(event, formId, currentPage){if(formId == 3) {if(typeof Placeholders != 'undefined'){
+                        Placeholders.enable();
+                    }} } );jQuery(document).on('gform_post_conditional_logic', function(event, formId, fields, isInit){} ) } );
+});</script>
+<script>window.addEventListener('DOMContentLoaded', function() {
+gform.initializeOnLoaded( function() {jQuery(document).trigger("gform_pre_post_render", [{ formId: "3", currentPage: "1", abort: function() { this.preventDefault(); } }]);        if (event && event.defaultPrevented) {                return;        }        const gformWrapperDiv = document.getElementById( "gform_wrapper_3" );        if ( gformWrapperDiv ) {            const visibilitySpan = document.createElement( "span" );            visibilitySpan.id = "gform_visibility_test_3";            gformWrapperDiv.insertAdjacentElement( "afterend", visibilitySpan );        }        const visibilityTestDiv = document.getElementById( "gform_visibility_test_3" );        let postRenderFired = false;        function triggerPostRender() {            if ( postRenderFired ) {                return;            }            postRenderFired = true;            gform.core.triggerPostRenderEvents( 3, 1 );            if ( visibilityTestDiv ) {                visibilityTestDiv.parentNode.removeChild( visibilityTestDiv );            }        }        function debounce( func, wait, immediate ) {            var timeout;            return function() {                var context = this, args = arguments;                var later = function() {                    timeout = null;                    if ( !immediate ) func.apply( context, args );                };                var callNow = immediate && !timeout;                clearTimeout( timeout );                timeout = setTimeout( later, wait );                if ( callNow ) func.apply( context, args );            };        }        const debouncedTriggerPostRender = debounce( function() {            triggerPostRender();        }, 200 );        if ( visibilityTestDiv && visibilityTestDiv.offsetParent === null ) {            const observer = new MutationObserver( ( mutations ) => {                mutations.forEach( ( mutation ) => {                    if ( mutation.type === 'attributes' && visibilityTestDiv.offsetParent !== null ) {                        debouncedTriggerPostRender();                        observer.disconnect();                    }                });            });            observer.observe( document.body, {                attributes: true,                childList: false,                subtree: true,                attributeFilter: [ 'style', 'class' ],            });        } else {            triggerPostRender();        }    } );
+});</script>
+<script>"use strict";function wprRemoveCPCSS(){var preload_stylesheets=document.querySelectorAll('link[data-rocket-async="style"][rel="preload"]');if(preload_stylesheets&&0<preload_stylesheets.length)for(var stylesheet_index=0;stylesheet_index<preload_stylesheets.length;stylesheet_index++){var media=preload_stylesheets[stylesheet_index].getAttribute("media")||"all";if(window.matchMedia(media).matches)return void setTimeout(wprRemoveCPCSS,200)}var elem=document.getElementById("rocket-critical-css");elem&&"remove"in elem&&elem.remove()}window.addEventListener?window.addEventListener("load",wprRemoveCPCSS):window.attachEvent&&window.attachEvent("onload",wprRemoveCPCSS);</script><noscript><link data-minify="1" rel="stylesheet" href="https://www.intermarche.be/files/cache/min/1/zxj0bci.css?ver=1791215349"><link rel='stylesheet' id='wpml-menu-item-0-css' href='https://www.intermarche.be/files/plugins/sitepress-multilingual-cms/templates/language-switchers/menu-item/style.min.css?ver=1' media='all' /><link data-minify="1" rel='stylesheet' id='produweb-style-css' href='https://www.intermarche.be/files/cache/min/1/files/themes/produweb-theme/assets/css/style.css?ver=1791215349' media='all' /><link rel='stylesheet' id='mdp-stellar-css' href='https://www.intermarche.be/files/plugins/stellar/css/stellar.min.css?ver=2.4.0' media='all' /><link data-minify="1" rel='stylesheet' id='js_composer_front-css' href='https://www.intermarche.be/files/cache/min/1/files/plugins/js_composer/assets/css/js_composer.min.css?ver=1791215349' media='all' /><link data-minify="1" rel='stylesheet' id='gform_basic-css' href='https://www.intermarche.be/files/cache/min/1/files/plugins/gravityforms/assets/css/dist/basic.min.css?ver=1791215349' media='all' /><link rel='stylesheet' id='gform_theme_components-css' href='https://www.intermarche.be/files/plugins/gravityforms/assets/css/dist/theme-components.min.css?ver=3.1.2' media='all' /><link rel='stylesheet' id='gform_theme-css' href='https://www.intermarche.be/files/plugins/gravityforms/assets/css/dist/theme.min.css?ver=3.1.2' media='all' /><link rel='stylesheet' id='vc_font_awesome_5_shims-css' href='https://www.intermarche.be/files/plugins/js_composer/assets/lib/vendor/dist/@fortawesome/fontawesome-free/css/v4-shims.min.css?ver=9.0.1' media='all' /><link data-minify="1" rel='stylesheet' id='vc_font_awesome_6-css' href='https://www.intermarche.be/files/cache/min/1/files/plugins/js_composer/assets/lib/vendor/dist/@fortawesome/fontawesome-free/css/all.min.css?ver=1791215349' media='all' /><link data-minify="1" rel='stylesheet' id='wpgb-facets-css' href='https://www.intermarche.be/files/cache/min/1/files/plugins/wp-grid-builder/public/css/facets.css?ver=1791215355' media='all' /><link data-minify="1" rel='stylesheet' id='wpgb-styles-css' href='https://www.intermarche.be/files/cache/min/1/files/uploads/wpgb/facets/styles.css?ver=1791215355' media='all' /></noscript></body>
+</html>
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1791787560 -->

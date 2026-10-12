@@ -21,7 +21,7 @@ class SmtpSettings:
     port: int
     user: str
     password: str
-    recipient: str
+    bcc: tuple[str, ...] = ()  # destinataires supplémentaires (MAIL_TO), en copie cachée
 
     @classmethod
     def from_env(cls) -> "SmtpSettings":
@@ -34,13 +34,16 @@ class SmtpSettings:
             )
         if not password:
             raise ValueError("SMTP_PASSWORD est vide")
-        recipient = os.environ.get("MAIL_TO", "").strip() or user
+        extra = [a.strip() for a in re.split(r"[,;\s]+", os.environ.get("MAIL_TO", "")) if a.strip()]
+        bad = [a for a in extra if not re.fullmatch(r"[^@\s]+@[^@\s]+\.[^@\s]+", a)]
+        if bad:
+            raise ValueError(f"MAIL_TO contient {len(bad)} adresse(s) invalide(s)")
         return cls(
             host=os.environ.get("SMTP_HOST", "smtp.gmail.com"),
             port=int(os.environ.get("SMTP_PORT", "465")),
             user=user,
             password=password,
-            recipient=recipient,
+            bcc=tuple(dict.fromkeys(a for a in extra if a.lower() != user.lower())),
         )
 
 
@@ -181,7 +184,9 @@ def send_mail(settings: SmtpSettings, subject: str, text: str, html: str) -> Non
     msg = EmailMessage()
     msg["Subject"] = subject
     msg["From"] = f"Promo Notifier <{settings.user}>"
-    msg["To"] = settings.recipient
+    msg["To"] = settings.user
+    if settings.bcc:
+        msg["Bcc"] = ", ".join(settings.bcc)
     msg.set_content(text)
     msg.add_alternative(html, subtype="html")
     if settings.port == 465:

@@ -43,7 +43,7 @@ Secrets GitHub (Settings → Secrets and variables → Actions) :
 |---|---|
 | `SMTP_USER` | adresse Gmail d'envoi |
 | `SMTP_PASSWORD` | [mot de passe d'application Gmail](https://myaccount.google.com/apppasswords) |
-| `MAIL_TO` | destinataire (optionnel, défaut : `SMTP_USER`) |
+| `MAIL_TO` | destinataires supplémentaires, séparés par des virgules (optionnel ; en copie cachée, le mail part toujours aussi à `SMTP_USER`) |
 | `ANTHROPIC_API_KEY` | clé API Anthropic pour lire le dépliant Colruyt ([console](https://console.anthropic.com/settings/keys)) |
 
 Autre fournisseur SMTP : variables `SMTP_HOST` / `SMTP_PORT` (465 = SSL, sinon STARTTLS).

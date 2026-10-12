@@ -119,7 +119,14 @@ def test_smtp_settings_from_env(monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.setenv("SMTP_PASSWORD", "abcd efgh ijkl mnop")
     monkeypatch.delenv("MAIL_TO", raising=False)
     settings = SmtpSettings.from_env()
-    assert (settings.user, settings.password, settings.recipient) == ("moi@gmail.com", "abcdefghijklmnop", "moi@gmail.com")
+    assert (settings.user, settings.password, settings.bcc) == ("moi@gmail.com", "abcdefghijklmnop", ())
+
+    monkeypatch.setenv("MAIL_TO", "a@yahoo.fr, b@yahoo.fr;moi@gmail.com a@yahoo.fr")
+    assert SmtpSettings.from_env().bcc == ("a@yahoo.fr", "b@yahoo.fr")
+    monkeypatch.setenv("MAIL_TO", "pas-une-adresse")
+    with pytest.raises(ValueError, match="MAIL_TO"):
+        SmtpSettings.from_env()
+    monkeypatch.delenv("MAIL_TO")
 
     monkeypatch.setenv("SMTP_USER", "sk-ant-pas-une-adresse")
     with pytest.raises(ValueError, match="SMTP_USER"):

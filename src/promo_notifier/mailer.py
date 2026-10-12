@@ -5,6 +5,7 @@ téléphone), le corps HTML contient le récapitulatif complet.
 """
 
 import os
+import re
 import smtplib
 from collections import defaultdict
 from dataclasses import dataclass
@@ -24,13 +25,22 @@ class SmtpSettings:
 
     @classmethod
     def from_env(cls) -> "SmtpSettings":
-        user = os.environ["SMTP_USER"]
+        user = os.environ.get("SMTP_USER", "").strip()
+        # Google affiche les mots de passe d'application par groupes de 4 : "abcd efgh ijkl mnop".
+        password = "".join(os.environ.get("SMTP_PASSWORD", "").split())
+        if not re.fullmatch(r"[^@\s]+@[^@\s]+\.[^@\s]+", user):
+            raise ValueError(
+                f"SMTP_USER doit être l'adresse e-mail d'envoi (valeur reçue : {len(user)} caractères, sans format d'adresse)"
+            )
+        if not password:
+            raise ValueError("SMTP_PASSWORD est vide")
+        recipient = os.environ.get("MAIL_TO", "").strip() or user
         return cls(
             host=os.environ.get("SMTP_HOST", "smtp.gmail.com"),
             port=int(os.environ.get("SMTP_PORT", "465")),
             user=user,
-            password=os.environ["SMTP_PASSWORD"],
-            recipient=os.environ.get("MAIL_TO") or user,
+            password=password,
+            recipient=recipient,
         )
 
 

@@ -1,6 +1,8 @@
 from datetime import date
 from pathlib import Path
 
+import pytest
+
 from promo_notifier.discount import estimate_discount
 from promo_notifier.filtering import filter_promos, normalize
 from promo_notifier.mailer import build_html, build_subject, build_text, split_highlights
@@ -108,3 +110,17 @@ def test_page_embeds_data_safely() -> None:
     assert "/*DATA*/" not in html
     assert "</script>\"" not in html and "Lessive <\\/script>" in html
     assert '"is_new":true' in html and '"keyword":"café"' in html
+
+
+def test_smtp_settings_from_env(monkeypatch: pytest.MonkeyPatch) -> None:
+    from promo_notifier.mailer import SmtpSettings
+
+    monkeypatch.setenv("SMTP_USER", " moi@gmail.com\n")
+    monkeypatch.setenv("SMTP_PASSWORD", "abcd efgh ijkl mnop")
+    monkeypatch.delenv("MAIL_TO", raising=False)
+    settings = SmtpSettings.from_env()
+    assert (settings.user, settings.password, settings.recipient) == ("moi@gmail.com", "abcdefghijklmnop", "moi@gmail.com")
+
+    monkeypatch.setenv("SMTP_USER", "sk-ant-pas-une-adresse")
+    with pytest.raises(ValueError, match="SMTP_USER"):
+        SmtpSettings.from_env()

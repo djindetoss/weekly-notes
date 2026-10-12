@@ -1,4 +1,4 @@
-# promo-notifier
+# weekly-notes
 
 Récupère les promos de la semaine (Intermarché, Delhaize, Colruyt), garde celles qui
 correspondent à mes mots-clés et m'envoie **un e-mail** avec uniquement les

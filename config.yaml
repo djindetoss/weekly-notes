@@ -27,7 +27,7 @@ exclude:
 highlight_min_discount: 40
 
 # Page filtrable de toutes les promos, liée depuis le mail (vide = pas de lien).
-page_url:
+page_url: https://djindetoss.github.io/weekly-notes/
 
 # Enseignes interrogées. Colruyt : dépliant Issuu lu par Claude (secret
 # ANTHROPIC_API_KEY requis), voir sources/colruyt.py.

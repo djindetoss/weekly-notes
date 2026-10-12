@@ -77,6 +77,20 @@ def run(config_path: Path, state_path: Path, site_dir: Path, dry_run: bool, igno
     return 1 if warnings else 0
 
 
+def send_test_mail(config_path: Path) -> int:
+    """Mail court pour vérifier l'envoi vers tous les destinataires, sans collecter les promos."""
+    config = load_config(config_path)
+    settings = SmtpSettings.from_env()
+    link = f"Page des promos : {config.page_url}" if config.page_url else ""
+    text = f"Test d'envoi : si vous lisez ce message, les notifications de promos vous parviendront.\n{link}\n"
+    html = "<p>Test d'envoi : si vous lisez ce message, les notifications de promos vous parviendront.</p>"
+    if config.page_url:
+        html += f'<p><a href="{config.page_url}">Voir la page des promos →</a></p>'
+    send_mail(settings, "🛒 Test d'envoi — promos de la semaine", text, html)
+    log.info("Mail de test envoyé à %d destinataire(s)", 1 + len(settings.bcc))
+    return 0
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Notifie les nouvelles promos des supermarchés.")
     parser.add_argument("--config", type=Path, default=Path("config.yaml"))
@@ -84,8 +98,11 @@ def main() -> None:
     parser.add_argument("--site", type=Path, default=Path("site"), help="dossier de la page web générée")
     parser.add_argument("--dry-run", action="store_true", help="affiche le récap sans envoyer ni mémoriser")
     parser.add_argument("--all", action="store_true", help="ignore l'historique (toutes les promos filtrées)")
+    parser.add_argument("--test-mail", action="store_true", help="envoie seulement un mail de test")
     args = parser.parse_args()
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
+    if args.test_mail:
+        sys.exit(send_test_mail(args.config))
     sys.exit(run(args.config, args.state, args.site, args.dry_run, args.all))
 
 

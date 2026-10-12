@@ -12,6 +12,10 @@ on:
         description: "Afficher le récap sans envoyer d'e-mail"
         type: boolean
         default: false
+      test_mail:
+        description: "Envoyer seulement un mail de test (pas de collecte)"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -43,7 +47,7 @@ jobs:
           SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
           MAIL_TO: ${{ secrets.MAIL_TO }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: promo-notifier ${{ inputs.dry_run && '--dry-run' || '' }}
+        run: promo-notifier ${{ inputs.test_mail && '--test-mail' || (inputs.dry_run && '--dry-run' || '') }}
 
       - name: Préparer la page filtrable
         if: always() && hashFiles('site/index.html') != ''
@@ -65,7 +69,7 @@ jobs:
   # Publie site/index.html sur GitHub Pages (Settings → Pages → Source : GitHub Actions).
   page:
     needs: run
-    if: always() && needs.run.result != 'cancelled'
+    if: always() && needs.run.result != 'cancelled' && !inputs.test_mail
     runs-on: ubuntu-latest
     environment:
       name: github-pages

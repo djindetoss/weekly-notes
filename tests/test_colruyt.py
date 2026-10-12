@@ -1,4 +1,3 @@
-import json
 from datetime import date
 from pathlib import Path
 
@@ -6,13 +5,8 @@ import pytest
 
 from promo_notifier.models import Promo
 from promo_notifier.sources.base import SourceUnavailable
-from promo_notifier.sources.colruyt import (
-    ColruytSource,
-    ExtractedPromo,
-    fill_missing_dates,
-    find_latest_doc,
-    to_promo,
-)
+from promo_notifier.sources.colruyt import ColruytSource, find_latest_doc
+from promo_notifier.sources.leaflet import ExtractedPromo, fill_missing_dates, save_cache, to_promo
 
 OLD = "colruyt_meilleurs_prix_-_d_pliant_d_251b27c98fdcf3"
 NEW = "colruyt_meilleurs_prix_-_d_pliant_d_c20be8284ea37b"
@@ -62,13 +56,14 @@ def test_to_promo() -> None:
         valid_from="2026-10-14",
         valid_to="2026-10-20",
     )
-    promo = to_promo(item, NEW, 2)
+    url = f"https://issuu.com/colruytgroup/docs/{NEW}/2"
+    promo = to_promo(item, "colruyt", url)
     assert promo.store == "colruyt"
     assert promo.valid_from == date(2026, 10, 14) and promo.valid_to == date(2026, 10, 20)
-    assert promo.url == f"https://issuu.com/colruytgroup/docs/{NEW}/2"
-    assert promo.product_id == to_promo(item, NEW, 5).product_id  # stable d'une page à l'autre
+    assert promo.url == url
+    assert promo.product_id == to_promo(item, "colruyt", "autre-page").product_id  # stable
     bad_date = item.model_copy(update={"valid_to": "20/10"})
-    assert to_promo(bad_date, NEW, 2).valid_to is None
+    assert to_promo(bad_date, "colruyt", url).valid_to is None
 
 
 def test_fetch_uses_cache_without_api(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
@@ -76,15 +71,14 @@ def test_fetch_uses_cache_without_api(tmp_path: Path, monkeypatch: pytest.Monkey
     monkeypatch.delenv("ANTHROPIC_AUTH_TOKEN", raising=False)
     cached = to_promo(ExtractedPromo(brand=None, name="carottes", description=None, mechanic="1+1 gratis",
                                      regular_price=2.68, promo_price=None, unit=None,
-                                     valid_from=None, valid_to=None), NEW, 2)
+                                     valid_from=None, valid_to=None), "colruyt", "u")
     cache = tmp_path / "colruyt_cache.json"
-    cache.write_text(json.dumps({"doc": NEW, "revision": "261009111853-bbbb",
-                                 "promos": [cached.model_dump(mode="json")]}))
+    save_cache(cache, {"261009111853-bbbb": [cached]})
     promos = ColruytSource(cache).fetch(FakeSession())  # type: ignore[arg-type]
     assert [p.name for p in promos] == ["carottes"]
 
     # Nouveau dépliant, pas de clé API : erreur explicite plutôt qu'un appel.
-    cache.write_text(json.dumps({"doc": OLD, "revision": "260918134412-aaaa", "promos": []}))
+    save_cache(cache, {"260918134412-aaaa": []})
     with pytest.raises(SourceUnavailable, match="ANTHROPIC_API_KEY"):
         ColruytSource(cache).fetch(FakeSession())  # type: ignore[arg-type]
 
@@ -100,3 +94,5 @@ def test_fill_missing_dates() -> None:
     filled = fill_missing_dates(promos)
     assert (filled[3].valid_from, filled[3].valid_to) == folder
     assert filled[2].valid_from == date(2026, 10, 14)  # période propre conservée
+    explicit = (date(2026, 10, 12), date(2026, 10, 17))
+    assert (fill_missing_dates(promos, explicit)[3].valid_to) == explicit[1]

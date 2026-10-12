@@ -1,6 +1,6 @@
 # weekly-notes
 
-Récupère les promos de la semaine (Intermarché, Delhaize, Colruyt), garde celles qui
+Récupère les promos de la semaine (Intermarché, Delhaize, Colruyt, Aldi, Lidl), garde celles qui
 correspondent à mes mots-clés et m'envoie **un e-mail** avec uniquement les
 promos **nouvelles** depuis le dernier passage. Usage strictement personnel.
 
@@ -26,7 +26,10 @@ mots-clés) : recherche, enseignes, réduction minimale, « mes mots-clés »,
 |---|---|---|
 | Intermarché | HTML statique de `/produits/?_pagination=N` | ~16 pages, quelques secondes. Les produits du folder sans réduction sont ignorés. |
 | Delhaize | API GraphQL interne `api/v1/?operationName=ProductList` | ~1 500 promos, 31 pages de 50, ~5 min (l'API est lente). Si Delhaize change son front, mettre à jour `QUERY_HASH` dans `sources/delhaize.py`. |
-| Colruyt | Dépliant publié par Colruyt sur Issuu (`issuu.com/colruytgroup`), pages lues par Claude Haiku 5.5 | Le site colruyt.be est protégé par un anti-bot : pas de contournement. Le dépliant (~37 pages, toutes les 2 semaines) n'est analysé qu'une fois, résultat en cache dans `state/colruyt_cache.json`. Coût : quelques centimes par dépliant. Lecture par IA : vérifier un prix en cas de doute (lien vers la page du dépliant). |
+| Colruyt | Dépliant publié par Colruyt sur Issuu (`issuu.com/colruytgroup`), pages lues par Claude Haiku 5.5 (`leaflet.py`) | Le site colruyt.be est protégé par un anti-bot : pas de contournement. Le dépliant (~37 pages, toutes les 2 semaines) n'est analysé qu'une fois, résultat en cache dans `state/colruyt_cache.json`. Coût : quelques centimes par dépliant. Lecture par IA : vérifier un prix en cas de doute (lien vers la page du dépliant). |
+| Aldi | JSON intégré à `/fr/offres.html` | ~100 promos (semaine en cours et suivante), prix barré, mécanique et dates. Les articles sans réduction (simples nouveautés) sont ignorés. |
+| Lidl | Dépliant publié par Lidl (`folder-fr.lidl.be`, API publique de la visionneuse), pages lues par Claude Haiku 5.5 | Dépliant hebdomadaire (~36 pages) ; celui de la semaine suivante est traité dès sa publication. Cache dans `state/lidl_cache.json`. |
+| Carrefour | — | Non disponible : la liste des folders n'est publiée que sur carrefour.be, protégé par Cloudflare. Pas de contournement. |
 
 ## Configuration
 
@@ -49,8 +52,8 @@ Autre fournisseur SMTP : variables `SMTP_HOST` / `SMTP_PORT` (465 = SSL, sinon S
 
 GitHub Actions (`.github/workflows/run.yml`) : mardi et jeudi à 06:00 UTC
 (nouveaux folders Intermarché et Delhaize), plus lancement manuel avec option
-*dry run*. Les promos notifiées sont mémorisées dans `state/seen.json` (et le
-dépliant Colruyt analysé dans `state/colruyt_cache.json`), commités
+*dry run*. Les promos notifiées sont mémorisées dans `state/seen.json` (et les
+dépliants Colruyt / Lidl analysés dans `state/*_cache.json`), commités
 par le workflow (entrées oubliées après 60 jours). Si une source échoue, les
 autres sont quand même traitées, l'erreur figure dans le mail et le run est
 marqué en échec.

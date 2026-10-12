@@ -14,7 +14,7 @@ from promo_notifier.models import Promo
 
 _NUM = r"(\d+(?:[.,]\d+)?)"
 _UNIT = r"\s*(?:kg|g|l|cl|ml)?\s*"
-_GRATIS = re.compile(_NUM + _UNIT + r"\+\s*" + _NUM + _UNIT + "gratis")
+_GRATIS = re.compile(_NUM + _UNIT + r"\+\s*" + _NUM + _UNIT + "(?:gratis|gratuit)")
 _NTH = re.compile(r"(\d+)\s*(?:e|eme|ieme)\s*a\s*-?\s*(\d+)\s*%")
 _PERCENT = re.compile(r"-\s*(\d+)\s*%")
 _N_FOR = re.compile(r"(\d+)\s*pour\s*€?\s*" + _NUM)

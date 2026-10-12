@@ -29,9 +29,12 @@ highlight_min_discount: 40
 # Page filtrable de toutes les promos, liée depuis le mail (vide = pas de lien).
 page_url: https://djindetoss.github.io/weekly-notes/
 
-# Enseignes interrogées. Colruyt : dépliant Issuu lu par Claude (secret
-# ANTHROPIC_API_KEY requis), voir sources/colruyt.py.
+# Enseignes interrogées. Colruyt et Lidl : dépliants lus par Claude (secret
+# ANTHROPIC_API_KEY requis), voir sources/leaflet.py. Carrefour : non
+# disponible (site protégé par un anti-bot).
 stores:
   intermarche: true
   delhaize: true
   colruyt: true
+  aldi: true
+  lidl: true

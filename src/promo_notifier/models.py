@@ -5,12 +5,14 @@ from typing import Literal
 
 from pydantic import BaseModel
 
-Store = Literal["intermarche", "delhaize", "colruyt"]
+Store = Literal["intermarche", "delhaize", "colruyt", "aldi", "lidl"]
 
 STORE_LABELS: dict[str, str] = {
     "intermarche": "Intermarché",
     "delhaize": "Delhaize",
     "colruyt": "Colruyt",
+    "aldi": "Aldi",
+    "lidl": "Lidl",
 }
 
 

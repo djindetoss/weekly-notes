@@ -2,6 +2,7 @@ import json
 from datetime import date
 from pathlib import Path
 
+from promo_notifier.sources.aldi import parse_offers
 from promo_notifier.sources.base import parse_price
 from promo_notifier.sources.delhaize import parse_products
 from promo_notifier.sources.intermarche import parse_page, parse_validity
@@ -54,3 +55,19 @@ def test_delhaize_products() -> None:
     assert creatine.url and creatine.url.startswith("https://www.delhaize.be/fr/shop/")
     gratis = next(p for p in promos if p.mechanic == "1+1 gratis")
     assert gratis.promo_price is None
+
+
+def test_aldi_offers() -> None:
+    promos = parse_offers((FIXTURES / "aldi_offres.html").read_text(encoding="utf-8"))
+    assert len(promos) == 98
+    buches = next(p for p in promos if p.product_id == "1213")
+    assert buches.name == "Bûches ardennaises, 4 pcs"
+    assert buches.description == "4 x 100 g"
+    assert buches.mechanic == "-25%"
+    assert (buches.regular_price, buches.promo_price) == (3.99, 2.99)
+    assert buches.unit == "7,48 € par kg"
+    # Fin exclusive (minuit le dimanche) ramenée au samedi.
+    assert (buches.valid_from, buches.valid_to) == (date(2026, 10, 11), date(2026, 10, 17))
+    assert buches.url == "https://www.aldi.be/fr/product/buches-ardennaises-4-pcs-1213.html"
+    # Articles sans réduction ni mécanique (simples nouveautés) écartés.
+    assert all(p.mechanic or p.regular_price for p in promos)

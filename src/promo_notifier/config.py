@@ -12,7 +12,12 @@ class Config(BaseModel):
     # Adresse de la page filtrable (GitHub Pages), ajoutée en lien dans le mail.
     page_url: str | None = None
     stores: dict[str, bool] = {
-        "intermarche": True, "delhaize": True, "colruyt": True, "aldi": True, "lidl": True
+        "intermarche": True,
+        "delhaize": True,
+        "colruyt": True,
+        "aldi": True,
+        "lidl": True,
+        "carrefour": True,
     }
 
 

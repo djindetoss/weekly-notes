@@ -5,7 +5,7 @@ from typing import Literal
 
 from pydantic import BaseModel
 
-Store = Literal["intermarche", "delhaize", "colruyt", "aldi", "lidl"]
+Store = Literal["intermarche", "delhaize", "colruyt", "aldi", "lidl", "carrefour"]
 
 STORE_LABELS: dict[str, str] = {
     "intermarche": "Intermarché",
@@ -13,6 +13,7 @@ STORE_LABELS: dict[str, str] = {
     "colruyt": "Colruyt",
     "aldi": "Aldi",
     "lidl": "Lidl",
+    "carrefour": "Carrefour",
 }
 
 

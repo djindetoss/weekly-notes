@@ -97,7 +97,7 @@ class LidlSource:
                 kept[flyer_id] = cache[flyer_id]
             else:
                 kept[flyer_id] = self._extract(session, flyer, identifier)
-                save_cache(self.cache_path, kept)  # sauvegarde après chaque dépliant
+                save_cache(self.cache_path, {**cache, **kept})  # sauvegarde après chaque dépliant
         save_cache(self.cache_path, kept)  # oublie les dépliants terminés
         promos = [p for flyer_promos in kept.values() for p in flyer_promos]
         log.info("Lidl : %d promos sur %d dépliant(s)", len(promos), len(kept))

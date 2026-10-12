@@ -7,9 +7,11 @@ from datetime import date
 from pathlib import Path
 
 from promo_notifier.config import load_config
+from promo_notifier.discount import estimate_discount
 from promo_notifier.filtering import filter_promos
 from promo_notifier.mailer import SmtpSettings, build_html, build_subject, build_text, send_mail
 from promo_notifier.models import STORE_LABELS, Promo
+from promo_notifier.page import build_page, write_page
 from promo_notifier.sources import SOURCES
 from promo_notifier.sources.base import make_session
 from promo_notifier.state import SeenStore
@@ -31,7 +33,7 @@ def collect(store_names: list[str]) -> tuple[list[Promo], list[str]]:
     return promos, warnings
 
 
-def run(config_path: Path, state_path: Path, dry_run: bool, ignore_state: bool) -> int:
+def run(config_path: Path, state_path: Path, site_dir: Path, dry_run: bool, ignore_state: bool) -> int:
     config = load_config(config_path)
     enabled = [name for name, on in config.stores.items() if on]
     unknown = [name for name in enabled if name not in SOURCES]
@@ -39,18 +41,31 @@ def run(config_path: Path, state_path: Path, dry_run: bool, ignore_state: bool) 
         raise SystemExit(f"Enseigne(s) inconnue(s) dans la config : {', '.join(unknown)}")
 
     promos, warnings = collect(enabled)
+    for promo in promos:
+        promo.discount = estimate_discount(promo)
     matches = filter_promos(promos, config.keywords, config.exclude)
     seen = SeenStore(state_path)
     new = [(p, k) for p, k in matches if ignore_state or p.uid not in seen]
     log.info("%d promos récupérées, %d correspondent, %d nouvelles", len(promos), len(matches), len(new))
 
+    page = build_page(
+        promos,
+        keywords={p.uid: k for p, k in matches},
+        new_uids={p.uid for p, _ in new},
+        stores=enabled,
+        min_discount=config.highlight_min_discount,
+    )
+    write_page(site_dir / "index.html", page)
+    log.info("Page écrite : %s", site_dir / "index.html")
+
     if new:
-        subject = build_subject(new)
-        text = build_text(new, warnings)
+        threshold, url = config.highlight_min_discount, config.page_url
+        subject = build_subject(new, threshold)
+        text = build_text(new, warnings, threshold, url)
         if dry_run:
             print(subject, text, sep="\n\n")
         else:
-            send_mail(SmtpSettings.from_env(), subject, text, build_html(new, warnings))
+            send_mail(SmtpSettings.from_env(), subject, text, build_html(new, warnings, threshold, url))
             log.info("E-mail envoyé : %s", subject)
 
     if not dry_run:
@@ -66,11 +81,12 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Notifie les nouvelles promos des supermarchés.")
     parser.add_argument("--config", type=Path, default=Path("config.yaml"))
     parser.add_argument("--state", type=Path, default=Path("state/seen.json"))
+    parser.add_argument("--site", type=Path, default=Path("site"), help="dossier de la page web générée")
     parser.add_argument("--dry-run", action="store_true", help="affiche le récap sans envoyer ni mémoriser")
     parser.add_argument("--all", action="store_true", help="ignore l'historique (toutes les promos filtrées)")
     args = parser.parse_args()
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
-    sys.exit(run(args.config, args.state, args.dry_run, args.all))
+    sys.exit(run(args.config, args.state, args.site, args.dry_run, args.all))
 
 
 if __name__ == "__main__":

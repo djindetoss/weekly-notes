@@ -4,8 +4,21 @@ Récupère les promos de la semaine (Intermarché, Delhaize), garde celles qui
 correspondent à mes mots-clés et m'envoie **un e-mail** avec uniquement les
 promos **nouvelles** depuis le dernier passage. Usage strictement personnel.
 
-L'objet du mail sert d'alerte courte (`🛒 7 nouvelles promos — Delhaize (4),
-Intermarché (3)`) ; le corps contient le récapitulatif complet par enseigne.
+L'objet du mail sert d'alerte courte (`🛒 7 nouvelles promos dont 2 à ne pas
+rater — Delhaize (4), Intermarché (3)`). Le corps commence par **⭐ À ne pas
+rater** : les promos dont la réduction estimée atteint `highlight_min_discount`
+(40 % par défaut), triées de la plus forte à la plus faible ; viennent ensuite
+les autres promos, par enseigne.
+
+La réduction est estimée à partir des prix (habituel / promo) quand ils sont
+connus, sinon de la mécanique : 1+1 gratis = 50 %, 3+1 gratis = 25 %,
+2e à -50 % = 25 %, « 3 pour 5 € » avec le prix unitaire… (`discount.py`).
+
+**Page filtrable** : chaque exécution génère aussi `site/index.html`, publiée
+sur GitHub Pages, avec **toutes** les promos de la semaine (pas seulement mes
+mots-clés) : recherche, enseignes, réduction minimale, « mes mots-clés »,
+« nouvelles », tri par réduction ou date de fin. Renseigner son adresse dans
+`page_url` (config.yaml) pour qu'elle soit liée depuis le mail.
 
 ## Sources
 

@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Promos de la semaine</title>
+<style>
+  :root {
+    --bg: #f6f6f4; --card: #fff; --text: #1d1d1b; --muted: #6b6b66; --line: #e3e3de;
+    --accent: #c4161c; --accent-soft: #fdecec; --new: #0b6e4f; --link: #0a58ca;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #161615; --card: #22221f; --text: #ededea; --muted: #a3a39c; --line: #34342f;
+      --accent: #ff6b6b; --accent-soft: #3a2020; --new: #4cc9a0; --link: #7fb0ff;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+         font: 15px/1.4 -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
+  header { padding: 20px 16px 8px; max-width: 1200px; margin: 0 auto; }
+  h1 { font-size: 22px; margin: 0 0 4px; }
+  .meta { color: var(--muted); font-size: 13px; }
+  .filters { position: sticky; top: 0; z-index: 1; background: var(--bg); border-bottom: 1px solid var(--line);
+             padding: 10px 16px; display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center;
+             max-width: 1200px; margin: 0 auto; }
+  .filters input[type=search] { flex: 1 1 220px; min-width: 0; padding: 8px 10px; border-radius: 8px;
+             border: 1px solid var(--line); background: var(--card); color: var(--text); font-size: 15px; }
+  .filters select { padding: 7px 8px; border-radius: 8px; border: 1px solid var(--line);
+             background: var(--card); color: var(--text); font-size: 14px; }
+  .filters label { font-size: 14px; display: inline-flex; gap: 5px; align-items: center; white-space: nowrap; }
+  .chip { border: 1px solid var(--line); background: var(--card); color: var(--text); border-radius: 999px;
+          padding: 6px 12px; font-size: 14px; cursor: pointer; }
+  .chip[aria-pressed=true] { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .count { color: var(--muted); font-size: 13px; width: 100%; }
+  main { max-width: 1200px; margin: 0 auto; padding: 12px 16px 40px;
+         display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px;
+          display: flex; gap: 10px; min-width: 0; }
+  .card.top { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent) inset; }
+  .card img { width: 64px; height: 64px; object-fit: contain; flex: none; background: #fff; border-radius: 8px; }
+  .body { min-width: 0; flex: 1; }
+  .store { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .03em; }
+  .name { font-weight: 600; margin: 2px 0; overflow-wrap: anywhere; }
+  .name a { color: inherit; text-decoration: none; }
+  .name a:hover { color: var(--link); text-decoration: underline; }
+  .desc { color: var(--muted); font-size: 13px; overflow-wrap: anywhere;
+          display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .row { display: flex; flex-wrap: wrap; gap: 6px; align-items: baseline; margin-top: 6px; }
+  .mech { color: var(--accent); font-weight: 700; font-size: 14px; }
+  .pct { background: var(--accent-soft); color: var(--accent); font-weight: 700; font-size: 13px;
+         border-radius: 6px; padding: 1px 6px; }
+  .price s { color: var(--muted); font-size: 13px; }
+  .price b { font-size: 15px; }
+  .tags { font-size: 12px; color: var(--muted); margin-top: 4px; }
+  .tag-new { color: var(--new); font-weight: 700; }
+  .empty { grid-column: 1 / -1; text-align: center; color: var(--muted); padding: 40px 0; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Promos de la semaine</h1>
+  <div class="meta" id="meta"></div>
+</header>
+<div class="filters">
+  <input type="search" id="q" placeholder="Rechercher (café, Lavazza…)" aria-label="Rechercher">
+  <span id="stores"></span>
+  <label>Réduction
+    <select id="min">
+      <option value="0">toutes</option>
+      <option value="20">≥ 20 %</option>
+      <option value="30">≥ 30 %</option>
+      <option value="40">≥ 40 %</option>
+      <option value="50">≥ 50 %</option>
+    </select>
+  </label>
+  <label><input type="checkbox" id="mine" checked> Mes mots-clés</label>
+  <label><input type="checkbox" id="fresh"> Nouvelles</label>
+  <label>Tri
+    <select id="sort">
+      <option value="discount">réduction</option>
+      <option value="end">fin la plus proche</option>
+      <option value="name">nom</option>
+    </select>
+  </label>
+  <div class="count" id="count"></div>
+</div>
+<main id="list"></main>
+<script>
+const DATA = /*DATA*/;
+const $ = (id) => document.getElementById(id);
+const fold = (s) => (s || "").normalize("NFKD").replace(/[̀-ͯ]/g, "").toLowerCase();
+const euro = (v) => v == null ? "" : v.toFixed(2).replace(".", ",") + " €";
+const day = (d) => d ? d.slice(8, 10) + "/" + d.slice(5, 7) : "";
+const esc = (s) => (s || "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+const activeStores = new Set(Object.keys(DATA.stores));
+for (const p of DATA.promos) p._text = fold([p.brand, p.name, p.description, p.mechanic].join(" "));
+
+$("meta").textContent = `${DATA.promos.length} promos · mis à jour le ${DATA.generated}`;
+$("min").value = String(DATA.highlight);
+for (const [code, label] of Object.entries(DATA.stores)) {
+  const b = document.createElement("button");
+  b.className = "chip"; b.type = "button"; b.textContent = label; b.setAttribute("aria-pressed", "true");
+  b.onclick = () => {
+    const on = b.getAttribute("aria-pressed") !== "true";
+    b.setAttribute("aria-pressed", String(on));
+    on ? activeStores.add(code) : activeStores.delete(code);
+    update();
+  };
+  $("stores").append(b, " ");
+}
+
+function card(p) {
+  const top = (p.discount || 0) >= DATA.highlight;
+  const price = p.promo_price != null && p.regular_price != null
+    ? `<s>${euro(p.regular_price)}</s> <b>${euro(p.promo_price)}</b>`
+    : `<b>${euro(p.promo_price ?? p.regular_price)}</b>`;
+  const name = p.url ? `<a href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.name)}</a>` : esc(p.name);
+  const img = p.image_url ? `<img src="${esc(p.image_url)}" alt="" loading="lazy">` : "";
+  const period = p.valid_to ? (p.valid_from ? `${day(p.valid_from)} → ${day(p.valid_to)}` : `jusqu'au ${day(p.valid_to)}`) : "";
+  const tags = [p.is_new ? '<span class="tag-new">nouveau</span>' : "", period, p.keyword ? `mot-clé : ${esc(p.keyword)}` : ""]
+    .filter(Boolean).join(" · ");
+  return `<article class="card${top ? " top" : ""}">${img}<div class="body">
+    <div class="store">${esc(DATA.stores[p.store])}${p.brand ? " · " + esc(p.brand) : ""}</div>
+    <div class="name">${name}</div>
+    ${p.description ? `<div class="desc">${esc(p.description)}</div>` : ""}
+    <div class="row">${p.mechanic ? `<span class="mech">${esc(p.mechanic)}</span>` : ""}
+      ${p.discount ? `<span class="pct">-${p.discount} %</span>` : ""}
+      <span class="price">${price}</span></div>
+    <div class="tags">${tags}</div></div></article>`;
+}
+
+function render() {
+  const q = fold($("q").value.trim());
+  const min = Number($("min").value);
+  const mine = $("mine").checked, fresh = $("fresh").checked, sort = $("sort").value;
+  const rows = DATA.promos.filter((p) =>
+    activeStores.has(p.store) && (p.discount || 0) >= min && (!mine || p.keyword) &&
+    (!fresh || p.is_new) && (!q || q.split(/\s+/).every((w) => p._text.includes(w))));
+  const by = {
+    discount: (a, b) => (b.discount || 0) - (a.discount || 0) || a.name.localeCompare(b.name, "fr"),
+    end: (a, b) => (a.valid_to || "9999").localeCompare(b.valid_to || "9999") || (b.discount || 0) - (a.discount || 0),
+    name: (a, b) => a.name.localeCompare(b.name, "fr"),
+  }[sort];
+  rows.sort(by);
+  $("count").textContent = `${rows.length} promo${rows.length > 1 ? "s" : ""} affichée${rows.length > 1 ? "s" : ""}`;
+  $("list").innerHTML = rows.length ? rows.map(card).join("") : '<p class="empty">Aucune promo ne correspond à ces filtres.</p>';
+}
+
+const header = document.querySelector("header");
+function update() {
+  render();
+  // Revient en haut de la liste si on était descendu plus bas.
+  if (window.scrollY > header.offsetHeight) window.scrollTo({ top: header.offsetHeight });
+}
+for (const id of ["q", "min", "mine", "fresh", "sort"]) $(id).addEventListener("input", update);
+render();
+</script>
+</body>
+</html>

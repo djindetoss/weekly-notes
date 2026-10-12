@@ -28,6 +28,7 @@ class Promo(BaseModel):
     valid_to: date | None = None
     url: str | None = None
     image_url: str | None = None
+    discount: int | None = None  # % de réduction estimé (voir discount.py)
 
     @property
     def uid(self) -> str:

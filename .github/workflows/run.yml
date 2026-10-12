@@ -15,6 +15,8 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 concurrency:
   group: promo-notifier
@@ -42,6 +44,12 @@ jobs:
           MAIL_TO: ${{ secrets.MAIL_TO }}
         run: promo-notifier ${{ inputs.dry_run && '--dry-run' || '' }}
 
+      - name: Préparer la page filtrable
+        if: always() && hashFiles('site/index.html') != ''
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
       # Même si une source a échoué, on mémorise les promos déjà notifiées.
       - name: Mémoriser les promos notifiées
         if: always() && !inputs.dry_run
@@ -51,3 +59,15 @@ jobs:
           git add state/seen.json
           git diff --cached --quiet || git commit -m "state: promos notifiées $(date -u +%F)"
           git push
+
+  # Publie site/index.html sur GitHub Pages (Settings → Pages → Source : GitHub Actions).
+  page:
+    needs: run
+    if: always() && needs.run.result != 'cancelled'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - id: deploy
+        uses: actions/deploy-pages@v4

@@ -20,7 +20,7 @@ from typing import Any
 import requests
 
 from promo_notifier.models import Promo
-from promo_notifier.sources.base import PAGE_DELAY_SECONDS, TIMEOUT, SourceUnavailable
+from promo_notifier.sources.base import PAGE_DELAY_SECONDS, TIMEOUT, SourceUnavailable, get_with_retry
 from promo_notifier.sources.leaflet import (
     extract_page,
     fill_missing_dates,
@@ -74,7 +74,7 @@ class LidlSource:
         promos: list[Promo] = []
         for page in flyer["pages"]:
             number = page["number"]
-            resp = session.get(page["image"], timeout=TIMEOUT)
+            resp = get_with_retry(session, page["image"])
             resp.raise_for_status()
             items = extract_page(client, resp.content, number, "Lidl")
             url = f"https://folder-fr.lidl.be/{identifier}/page/{number}"

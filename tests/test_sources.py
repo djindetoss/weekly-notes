@@ -2,6 +2,8 @@ import json
 from datetime import date
 from pathlib import Path
 
+import pytest
+
 from promo_notifier.sources.aldi import parse_offers
 from promo_notifier.sources.base import parse_price
 from promo_notifier.sources.delhaize import parse_products
@@ -71,3 +73,22 @@ def test_aldi_offers() -> None:
     assert buches.url == "https://www.aldi.be/fr/product/buches-ardennaises-4-pcs-1213.html"
     # Articles sans réduction ni mécanique (simples nouveautés) écartés.
     assert all(p.mechanic or p.regular_price for p in promos)
+
+
+def test_get_with_retry_recovers(monkeypatch: pytest.MonkeyPatch) -> None:
+    import requests
+
+    from promo_notifier.sources import base
+
+    monkeypatch.setattr(base.time, "sleep", lambda _: None)
+    calls = []
+
+    class Flaky:
+        def get(self, url: str, timeout: int) -> object:
+            calls.append(url)
+            if len(calls) < 3:
+                raise requests.ConnectionError("coupure")
+            return type("R", (), {"status_code": 200})()
+
+    assert base.get_with_retry(Flaky(), "u").status_code == 200  # type: ignore[arg-type]
+    assert len(calls) == 3

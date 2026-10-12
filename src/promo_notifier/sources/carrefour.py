@@ -22,7 +22,7 @@ from zoneinfo import ZoneInfo
 import requests
 
 from promo_notifier.models import Promo
-from promo_notifier.sources.base import PAGE_DELAY_SECONDS, TIMEOUT
+from promo_notifier.sources.base import PAGE_DELAY_SECONDS, TIMEOUT, get_with_retry
 from promo_notifier.sources.leaflet import (
     extract_page,
     fill_missing_dates,
@@ -80,7 +80,7 @@ class CarrefourSource:
         promos: list[Promo] = []
         for page in folder["pages"]:
             number = page["index"] + 1
-            resp = session.get(page["image_large"], timeout=TIMEOUT)
+            resp = get_with_retry(session, page["image_large"])
             resp.raise_for_status()
             items = extract_page(client, resp.content, number, label, media_type="image/webp")
             url = f"{BASE_URL}/{shop}-folder/{folder['id']}/{page['index']}"

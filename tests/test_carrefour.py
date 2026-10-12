@@ -32,6 +32,8 @@ class FakeResponse:
     def __init__(self, text: str = "") -> None:
         self.text, self.content = text, text.encode()
 
+    status_code = 200
+
     def raise_for_status(self) -> None:
         pass
 

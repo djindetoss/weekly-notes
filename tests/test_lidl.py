@@ -28,6 +28,8 @@ class FakeResponse:
     def __init__(self, text: str = "", payload: Any = None) -> None:
         self.text, self.content, self._payload = text, text.encode(), payload
 
+    status_code = 200
+
     def raise_for_status(self) -> None:
         pass
 

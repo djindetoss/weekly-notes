@@ -18,7 +18,7 @@ from pathlib import Path
 import requests
 
 from promo_notifier.models import Promo
-from promo_notifier.sources.base import PAGE_DELAY_SECONDS, TIMEOUT, SourceUnavailable
+from promo_notifier.sources.base import PAGE_DELAY_SECONDS, TIMEOUT, SourceUnavailable, get_with_retry
 from promo_notifier.sources.leaflet import (
     extract_page,
     fill_missing_dates,
@@ -77,7 +77,7 @@ class ColruytSource:
         promos: list[Promo] = []
         page = 1
         for page in range(1, MAX_PAGES + 1):
-            resp = session.get(PAGE_IMAGE_URL.format(revision=revision, page=page), timeout=TIMEOUT)
+            resp = get_with_retry(session, PAGE_IMAGE_URL.format(revision=revision, page=page))
             if resp.status_code in (403, 404):  # au-delà de la dernière page
                 break
             resp.raise_for_status()

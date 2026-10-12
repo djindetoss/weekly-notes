@@ -1,3 +1,4 @@
+import time
 from typing import Protocol
 
 import requests
@@ -27,6 +28,22 @@ def make_session() -> requests.Session:
     session = requests.Session()
     session.headers.update({"User-Agent": USER_AGENT, "Accept-Language": "fr-BE,fr;q=0.9"})
     return session
+
+
+def get_with_retry(session: requests.Session, url: str, attempts: int = 3) -> requests.Response:
+    """GET avec quelques nouvelles tentatives sur les erreurs réseau passagères
+    (connexion coupée en plein téléchargement, 5xx)."""
+    for attempt in range(1, attempts + 1):
+        try:
+            resp = session.get(url, timeout=TIMEOUT)
+            if resp.status_code < 500:
+                return resp
+            resp.raise_for_status()
+        except requests.RequestException:
+            if attempt == attempts:
+                raise
+        time.sleep(2 * attempt)
+    raise AssertionError("inatteignable")
 
 
 def parse_price(text: str | None) -> float | None:

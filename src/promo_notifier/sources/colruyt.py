@@ -17,6 +17,7 @@ import logging
 import os
 import re
 import time
+from collections import Counter
 from datetime import date
 from pathlib import Path
 
@@ -147,6 +148,16 @@ def extract_page(client: anthropic.Anthropic, image: bytes, page: int) -> list[E
     return response.parsed_output.promos
 
 
+def fill_missing_dates(promos: list[Promo]) -> list[Promo]:
+    """Les pages sans pied de page « Offres valables du … au … » donnent des promos
+    sans dates : on leur applique la période la plus fréquente du dépliant."""
+    periods = Counter((p.valid_from, p.valid_to) for p in promos if p.valid_from and p.valid_to)
+    if not periods:
+        return promos
+    (start, end), _ = periods.most_common(1)[0]
+    return [p if p.valid_to else p.model_copy(update={"valid_from": start, "valid_to": end}) for p in promos]
+
+
 def _load_cache(path: Path) -> dict | None:
     try:
         return json.loads(path.read_text(encoding="utf-8"))
@@ -165,7 +176,7 @@ class ColruytSource:
         cache = _load_cache(self.cache_path)
         if cache and cache.get("revision") == revision:
             log.info("Colruyt : dépliant %s déjà analysé (cache)", doc)
-            return [Promo.model_validate(p) for p in cache["promos"]]
+            return fill_missing_dates([Promo.model_validate(p) for p in cache["promos"]])
 
         if not (os.environ.get("ANTHROPIC_API_KEY") or os.environ.get("ANTHROPIC_AUTH_TOKEN")):
             raise SourceUnavailable("clé API Anthropic absente (secret ANTHROPIC_API_KEY)")
@@ -182,7 +193,7 @@ class ColruytSource:
             log.info("Colruyt : page %d -> %d promo(s)", page, len(items))
             time.sleep(PAGE_DELAY_SECONDS)
 
-        unique = list({p.uid: p for p in promos}.values())
+        unique = list({p.uid: p for p in fill_missing_dates(promos)}.values())
         self.cache_path.parent.mkdir(parents=True, exist_ok=True)
         self.cache_path.write_text(
             json.dumps(

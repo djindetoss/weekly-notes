@@ -4,8 +4,15 @@ from pathlib import Path
 
 import pytest
 
+from promo_notifier.models import Promo
 from promo_notifier.sources.base import SourceUnavailable
-from promo_notifier.sources.colruyt import ColruytSource, ExtractedPromo, find_latest_doc, to_promo
+from promo_notifier.sources.colruyt import (
+    ColruytSource,
+    ExtractedPromo,
+    fill_missing_dates,
+    find_latest_doc,
+    to_promo,
+)
 
 OLD = "colruyt_meilleurs_prix_-_d_pliant_d_251b27c98fdcf3"
 NEW = "colruyt_meilleurs_prix_-_d_pliant_d_c20be8284ea37b"
@@ -80,3 +87,16 @@ def test_fetch_uses_cache_without_api(tmp_path: Path, monkeypatch: pytest.Monkey
     cache.write_text(json.dumps({"doc": OLD, "revision": "260918134412-aaaa", "promos": []}))
     with pytest.raises(SourceUnavailable, match="ANTHROPIC_API_KEY"):
         ColruytSource(cache).fetch(FakeSession())  # type: ignore[arg-type]
+
+
+def test_fill_missing_dates() -> None:
+    folder = (date(2026, 10, 7), date(2026, 10, 20))
+    promos = [
+        Promo(store="colruyt", product_id="a", name="a", valid_from=folder[0], valid_to=folder[1]),
+        Promo(store="colruyt", product_id="b", name="b", valid_from=folder[0], valid_to=folder[1]),
+        Promo(store="colruyt", product_id="c", name="c", valid_from=date(2026, 10, 14), valid_to=folder[1]),
+        Promo(store="colruyt", product_id="d", name="d"),
+    ]
+    filled = fill_missing_dates(promos)
+    assert (filled[3].valid_from, filled[3].valid_to) == folder
+    assert filled[2].valid_from == date(2026, 10, 14)  # période propre conservée

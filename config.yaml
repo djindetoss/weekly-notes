@@ -29,8 +29,9 @@ highlight_min_discount: 40
 # Page filtrable de toutes les promos, liée depuis le mail (vide = pas de lien).
 page_url:
 
-# Enseignes interrogées. Colruyt est désactivé : voir sources/colruyt.py.
+# Enseignes interrogées. Colruyt : dépliant Issuu lu par Claude (secret
+# ANTHROPIC_API_KEY requis), voir sources/colruyt.py.
 stores:
   intermarche: true
   delhaize: true
-  colruyt: false
+  colruyt: true

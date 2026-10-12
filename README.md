@@ -1,6 +1,6 @@
 # promo-notifier
 
-Récupère les promos de la semaine (Intermarché, Delhaize), garde celles qui
+Récupère les promos de la semaine (Intermarché, Delhaize, Colruyt), garde celles qui
 correspondent à mes mots-clés et m'envoie **un e-mail** avec uniquement les
 promos **nouvelles** depuis le dernier passage. Usage strictement personnel.
 
@@ -26,7 +26,7 @@ mots-clés) : recherche, enseignes, réduction minimale, « mes mots-clés »,
 |---|---|---|
 | Intermarché | HTML statique de `/produits/?_pagination=N` | ~16 pages, quelques secondes. Les produits du folder sans réduction sont ignorés. |
 | Delhaize | API GraphQL interne `api/v1/?operationName=ProductList` | ~1 500 promos, 31 pages de 50, ~5 min (l'API est lente). Si Delhaize change son front, mettre à jour `QUERY_HASH` dans `sources/delhaize.py`. |
-| Colruyt | — | Désactivé : les produits viennent d'une API à clé applicative et le site renvoie une page anti-bot. Pas de contournement. |
+| Colruyt | Dépliant publié par Colruyt sur Issuu (`issuu.com/colruytgroup`), pages lues par Claude Haiku 5.5 | Le site colruyt.be est protégé par un anti-bot : pas de contournement. Le dépliant (~37 pages, toutes les 2 semaines) n'est analysé qu'une fois, résultat en cache dans `state/colruyt_cache.json`. Coût : quelques centimes par dépliant. Lecture par IA : vérifier un prix en cas de doute (lien vers la page du dépliant). |
 
 ## Configuration
 
@@ -41,6 +41,7 @@ Secrets GitHub (Settings → Secrets and variables → Actions) :
 | `SMTP_USER` | adresse Gmail d'envoi |
 | `SMTP_PASSWORD` | [mot de passe d'application Gmail](https://myaccount.google.com/apppasswords) |
 | `MAIL_TO` | destinataire (optionnel, défaut : `SMTP_USER`) |
+| `ANTHROPIC_API_KEY` | clé API Anthropic pour lire le dépliant Colruyt ([console](https://console.anthropic.com/settings/keys)) |
 
 Autre fournisseur SMTP : variables `SMTP_HOST` / `SMTP_PORT` (465 = SSL, sinon STARTTLS).
 
@@ -48,7 +49,8 @@ Autre fournisseur SMTP : variables `SMTP_HOST` / `SMTP_PORT` (465 = SSL, sinon S
 
 GitHub Actions (`.github/workflows/run.yml`) : mardi et jeudi à 06:00 UTC
 (nouveaux folders Intermarché et Delhaize), plus lancement manuel avec option
-*dry run*. Les promos notifiées sont mémorisées dans `state/seen.json`, commité
+*dry run*. Les promos notifiées sont mémorisées dans `state/seen.json` (et le
+dépliant Colruyt analysé dans `state/colruyt_cache.json`), commités
 par le workflow (entrées oubliées après 60 jours). Si une source échoue, les
 autres sont quand même traitées, l'erreur figure dans le mail et le run est
 marqué en échec.

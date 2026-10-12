@@ -42,6 +42,7 @@ jobs:
           SMTP_USER: ${{ secrets.SMTP_USER }}
           SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
           MAIL_TO: ${{ secrets.MAIL_TO }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: promo-notifier ${{ inputs.dry_run && '--dry-run' || '' }}
 
       - name: Préparer la page filtrable
@@ -50,14 +51,15 @@ jobs:
         with:
           path: site
 
-      # Même si une source a échoué, on mémorise les promos déjà notifiées.
-      - name: Mémoriser les promos notifiées
-        if: always() && !inputs.dry_run
+      # Même si une source a échoué, on mémorise les promos déjà notifiées
+      # et le dépliant Colruyt analysé (cache, aussi en dry run pour ne pas payer deux fois).
+      - name: Mémoriser l'état
+        if: always()
         run: |
           git config user.name "promo-notifier[bot]"
           git config user.email "promo-notifier[bot]@users.noreply.github.com"
-          git add state/seen.json
-          git diff --cached --quiet || git commit -m "state: promos notifiées $(date -u +%F)"
+          git add state/
+          git diff --cached --quiet || git commit -m "state: mise à jour $(date -u +%F)"
           git push
 
   # Publie site/index.html sur GitHub Pages (Settings → Pages → Source : GitHub Actions).

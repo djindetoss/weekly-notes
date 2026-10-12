@@ -8,6 +8,7 @@ dependencies = [
     "beautifulsoup4>=4.12",
     "pyyaml>=6.0",
     "pydantic>=2.7",
+    "anthropic>=1.0",
 ]
 
 [project.optional-dependencies]
